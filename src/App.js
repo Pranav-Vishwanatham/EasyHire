@@ -30,9 +30,6 @@ function App() {
               <li style={{ fontWeight: 'bold'}}>
                 <Link to="/register"> Register</Link>
               </li>
-              <li style={{ fontWeight: 'bold'}}>
-                <Link to="/Signup"> Signup</Link>
-              </li>
             </ul>
           </nav>
         </header>
