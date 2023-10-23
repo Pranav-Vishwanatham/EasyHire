@@ -1,40 +1,26 @@
-// App.js
 import React from "react";
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import Home from './Home';
 import "./App.css";
 
 function App() {
   return (
-    // <meta charset="UTF-8" />
-    // <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <div>
-      <title>Career Fair</title>
-      <header>
-        <div id="logo">EasyHire</div>
+    <Router>
+      <div>
         <nav>
-          <a href="#">HOME</a>
-          <a href="#">BLOG</a>
-          <a href="#">FAIRS</a>
-          <a href="#">HELP</a>
-          <a href="#" id="login-btn">
-            LOGIN
-          </a>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
         </nav>
-      </header>
+      </div>
 
-      <main>
-        <h1>Which best describes you?</h1>
-        <div class="option">
-          <a href="EventRecruiter.js">
-            <button>Event Host</button>
-          </a>
-          <button>Recruiter</button>
-          <button>Candidate</button>
-        </div>
-      </main>
-
-      <footer></footer>
-    </div>
+      <Routes>
+        {/* Updated Route definition */}
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
