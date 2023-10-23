@@ -1,4 +1,12 @@
-.container {
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #f1f1f1;
+}
+
+.register-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +14,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 350px;
     margin: 50px auto;
+    background-color: rgb(229, 228, 228);
 }
+
 
 .header {
     font-size: 48px;
