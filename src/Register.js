@@ -1,24 +1,42 @@
-import React from 'react';
-import './login.css'
+import React, { useState } from 'react';
+import './register.css';
+import CandidateForm from './Candidateform';
+import RecruiterForm from './Recruiterform';
+function CareerFairPlus() {
+  const [selectedRole, setSelectedRole] = useState(null);
 
-function Register() {
-    return (
-        <div className="login-container">
-            <div className="login-card">
-                <div className="login-header">
-                    <h2>Welcome Back</h2>
-                </div>
-                <form className="login-form">
-                    <input type="text" placeholder="Email Address" required />
-                    <input type="password" placeholder="Password" required />
-                    <br/><br/>
-                    <button type="submit">LOG IN</button>
-                </form>
-                <br/>
-                <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
-            </div>
+  const handleRoleSelect = role => {
+    setSelectedRole(role);
+  };
+
+  return (
+    <div className="container">
+      <div className="header">CAREER FAIR+</div>
+      <div>Join Us!</div>
+      <div className="selection">
+        <div className="role" onClick={() => handleRoleSelect('Recruiter')}>
+          <span>Recruiter</span>
         </div>
-    );
+        <div className="role" onClick={() => handleRoleSelect('Candidate')}>
+          <span>Candidate</span>
+        </div>
+      </div>
+      {selectedRole === 'Recruiter' && (
+        <div>
+          <h3>Recruiter Form</h3>
+          <RecruiterForm />
+        </div>
+      )}
+      {selectedRole === 'Candidate' && (
+        <div>
+          <h3>Candidate Form</h3>
+          <CandidateForm />
+        </div>
+      )}
+      <button className="button">SIGN UP</button>
+      <div>FORGOT PASSWORD?</div>
+    </div>
+  );
 }
 
-export default Register;
+export default CareerFairPlus;

@@ -3,10 +3,9 @@ import './login.css';
 
 function Login() {
     return (
-//<<<<<<< navigationLinks
-=======
-        <div>
-        <header>
+
+<div>
+    {/* <header>
         <div id="logo">EasyHire</div>
         <nav>
           <a href="#">HOME</a>
@@ -17,8 +16,9 @@ function Login() {
             Sign Up
           </a>
         </nav>
-      </header>
-//>>>>>>> main
+     </header> */}
+     
+     
         <div className="login-container">
             <div className="login-card">
                 <div className="login-header">
@@ -34,7 +34,11 @@ function Login() {
                 <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
             </div>
         </div>
+
+ </div>
+       
     );
+    
 }
 
 export default Login;

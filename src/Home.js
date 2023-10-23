@@ -5,9 +5,8 @@ import "./App.css";
 
 function Home() {
   return (
-//<<<<<<< navigationLinks
     <div id='home'>
-      <h1>Which best describes you?</h1>
+      {/* <h1>Which best describes you?</h1>
       <div className="option">
         <a href="EventRecruiter.js">
           <button>Event Host</button>
@@ -15,13 +14,13 @@ function Home() {
         <button>Recruiter</button>
         <button>Candidate</button>
       </div>
-=======
-    // <meta charset="UTF-8" />
-    // <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {/* // <meta charset="UTF-8" />
+    // <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */} 
 
     <div>
       <title>Career Fair</title>
-      <header>
+      {/* <header>
         <div id="logo">EasyHire</div>
         <nav>
           <a href="#">HOME</a>
@@ -33,7 +32,7 @@ function Home() {
           </a>
         </nav>
       </header>
-      <br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/><br/><br/> */}
       <main>
         <h1>Which best describes you?</h1>
         <div class="option">
@@ -46,7 +45,8 @@ function Home() {
       </main>
 
       <footer></footer>
-//>>>>>>> main
+
+    </div>
     </div>
   );
 }
