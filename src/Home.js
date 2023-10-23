@@ -17,11 +17,11 @@ function Home() {
           <a href="#">FAIRS</a>
           <a href="#">HELP</a>
           <a href="#" id="login-btn">
-            LOGIN
+            Sign Up
           </a>
         </nav>
       </header>
-
+      <br/><br/><br/><br/><br/><br/><br/><br/>
       <main>
         <h1>Which best describes you?</h1>
         <div class="option">

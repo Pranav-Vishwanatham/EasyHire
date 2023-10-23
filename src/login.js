@@ -12,7 +12,7 @@ function LoginComponent() {
           <a href="#">FAIRS</a>
           <a href="#">HELP</a>
           <a href="#" id="login-btn">
-            LOGIN
+            Sign Up
           </a>
         </nav>
       </header>

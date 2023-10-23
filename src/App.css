@@ -45,6 +45,10 @@ main {
   border-radius: 5px;
 }
 
+h1{
+  color: #016b63;
+}
+
 footer {
   /* Add styling for the footer as needed */
 }
