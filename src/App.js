@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Home';
-import Login from './Login';
+import Login from './login';
 import './App.css';
 import Blog from './Blog';
 import Fairs from './Fairs';
@@ -29,6 +29,9 @@ function App() {
               </li>
               <li style={{ fontWeight: 'bold'}}>
                 <Link to="/register"> Register</Link>
+              </li>
+              <li style={{ fontWeight: 'bold'}}>
+                <Link to="/Signup"> Signup</Link>
               </li>
             </ul>
           </nav>
