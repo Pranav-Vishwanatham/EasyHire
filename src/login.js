@@ -1,8 +1,10 @@
 import React from 'react';
 import './login.css';
 
-function LoginComponent() {
+function Login() {
     return (
+//<<<<<<< navigationLinks
+=======
         <div>
         <header>
         <div id="logo">EasyHire</div>
@@ -16,6 +18,7 @@ function LoginComponent() {
           </a>
         </nav>
       </header>
+//>>>>>>> main
         <div className="login-container">
             <div className="login-card">
                 <div className="login-header">
@@ -31,8 +34,7 @@ function LoginComponent() {
                 <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
             </div>
         </div>
-        </div>
     );
 }
 
-export default LoginComponent;
+export default Login;

@@ -2,8 +2,20 @@
 import React from "react";
 import "./App.css";
 
+
 function Home() {
   return (
+//<<<<<<< navigationLinks
+    <div id='home'>
+      <h1>Which best describes you?</h1>
+      <div className="option">
+        <a href="EventRecruiter.js">
+          <button>Event Host</button>
+        </a>
+        <button>Recruiter</button>
+        <button>Candidate</button>
+      </div>
+=======
     // <meta charset="UTF-8" />
     // <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -34,8 +46,9 @@ function Home() {
       </main>
 
       <footer></footer>
+//>>>>>>> main
     </div>
   );
 }
-
+    
 export default Home;
