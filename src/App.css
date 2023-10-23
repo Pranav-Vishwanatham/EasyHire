@@ -6,7 +6,7 @@ body {
   background-image: url("/public/Home.jpg");
   background-size: cover;
 }
-
+/* 
 header {
   background-color: #00857b;
   display: flex;
@@ -19,10 +19,41 @@ header {
   font-weight: bold;
 }
 
-nav a {
+nav ul {
+  list-style: none; 
+  display: flex;
+}
+
+nav li {
   color: white;
   text-decoration: none;
   margin-left: 20px;
+} */
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00857b; /* Background color for the header */
+  padding: 0px 20px;
+  color: white; /* Text color for the header */
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px; /* Add spacing between list items */
+}
+
+nav a {
+  text-decoration: none;
+  color: white; /* Text color for links */
 }
 
 #login-btn {
@@ -31,9 +62,9 @@ nav a {
   border-radius: 5px;
 }
 
-main {
+#home {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .option button {

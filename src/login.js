@@ -1,21 +1,8 @@
 import React from 'react';
 import './login.css';
 
-function LoginComponent() {
+function Login() {
     return (
-        <div>
-        <header>
-        <div id="logo">EasyHire</div>
-        <nav>
-          <a href="#">HOME</a>
-          <a href="#">BLOG</a>
-          <a href="#">FAIRS</a>
-          <a href="#">HELP</a>
-          <a href="#" id="login-btn">
-            LOGIN
-          </a>
-        </nav>
-      </header>
         <div className="login-container">
             <div className="login-card">
                 <div className="login-header">
@@ -31,8 +18,7 @@ function LoginComponent() {
                 <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
             </div>
         </div>
-        </div>
     );
 }
 
-export default LoginComponent;
+export default Login;
