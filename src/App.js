@@ -33,6 +33,7 @@ function App() {
             </ul>
           </nav>
         </header>
+       
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
@@ -41,6 +42,24 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>
+
+    <div>
+    <footer>
+
+<section>
+  <p> &copy; 2023 EasyHire, Inc</p>
+</section>
+
+<section>
+  <p> About | Directions | Contact Us</p>
+</section>
+
+<section>
+  <p> Privacy Policy </p>
+</section>
+
+</footer>
+        </div>
     </Router>
   );
 }
