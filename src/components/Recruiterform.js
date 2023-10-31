@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Candidateform.css';
+import '../css/Candidateform.css';
+
 function Recruiterform() {
   const [formData, setFormData] = useState({
     firstName: '',

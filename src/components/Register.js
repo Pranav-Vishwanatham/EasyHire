@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './register.css';
+import '../css/register.css';
 import CandidateForm from './Candidateform';
 import RecruiterForm from './Recruiterform';
 
