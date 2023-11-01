@@ -1,10 +1,10 @@
 const { read } = require('../model/data.js');
 
-const getAllJobSeekersData = async (userId) => {
+const getAllJobSeekersData = async (req, res) => {
     try {
         const users = await read();
         const jobSeekers = users.filter(user => user.designation == 'jobSeeker');
-        return jobSeekers;
+        res.json(jobSeekers);
     } catch(error) {
         throw new Error("Something went wrong: " + error);
     }

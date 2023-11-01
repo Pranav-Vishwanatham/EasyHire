@@ -1,4 +1,4 @@
-const { read } = require('../model/data.js');
+const { read } = require('../../model/data.js');
 
 const getJobSeekerData = async (jobSeekerId) => {
     try {

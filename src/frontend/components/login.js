@@ -1,7 +1,8 @@
 import React from 'react';
 import '../css/login.css';
 
-const handleSubmit = async () => {
+const handleSubmit = async (event) => {
+    event.preventDefault();
     const emailInput = document.getElementById('email-txt');
     const passwordInput = document.getElementById('password');
         const email = emailInput.value;
@@ -13,20 +14,20 @@ const handleSubmit = async () => {
         
         // You can perform other operations here, like sending this information to the server for validation.
         try {
-            const response = await fetch(`/yourServerURL/login/${email}/${password}`, {
-                method: 'GET',
-                // You can pass the password as well, using a POST request and body
-                // body: JSON.stringify({ email, password }),
+            const response = await fetch('/api/validate', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify({ email, password })
             });
     
             if (response.ok) {
                 const userData = await response.json();
+                // console.log(userData);
                 // Do something with userData, like redirecting to a dashboard or storing it in the client-side session.
-                console.log(userData);
-                alert("Success!!!!");
+                // console.log(`Hello ${ userData[0].firstName }`);
+                alert(`Hello ${ userData[0].firstName }`);
             } else {
                 const errorMessage = await response.text();
                 alert(`Error: ${errorMessage}`);
@@ -34,7 +35,26 @@ const handleSubmit = async () => {
         } catch (error) {
             console.error('Error:', error);
         }
-
+        // try {
+        //     const response = await fetch('/api', {
+        //         method: 'GET',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         }
+        //     });
+    
+        //     if (response.ok) {
+        //         // const userData = await response.json();
+        //         // Do something with userData, like redirecting to a dashboard or storing it in the client-side session.
+        //         console.log(response);
+        //         alert("Success!!!!");
+        //     } else {
+        //         const errorMessage = await response.text();
+        //         alert(`Error: ${errorMessage}`);
+        //     }
+        // } catch (error) {
+        //     console.error('Error:', error);
+        // }
 }
 
 
