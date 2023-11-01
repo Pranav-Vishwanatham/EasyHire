@@ -37,7 +37,7 @@ function SponsorDetails(props) {
                     <div className="leftInfo">
                         <div className="dateInfo">
                             <h3>Schedule Time</h3>
-                            <h4>Tue, Sep 26th, 2023 | 9:00 AM - 10:00 AM EDT</h4>
+                            <h4>Tue, Nov 24th, 2023 | 9:00 AM - 10:00 AM EDT</h4>
                         </div>
                         <div className="interactionType">
                             <h3>Interaction Type</h3>
@@ -49,14 +49,47 @@ function SponsorDetails(props) {
                             <h3>Assigned Recruiter</h3>
                             <h4>Karen Sturzenacker</h4>
                         </div>
-                        <div className="availableSlots">
+                       {/* <div className="availableSlots"> 
                             <h3>Available Timeslots</h3>
-                            <h4>2</h4>
+                           <h4>2</h4><button>Appointment</button>
+                        {/* </div>  */}
+                        <div className="availableSlots"> 
+                        <button>Make an Appointment</button>
                         </div>
                     </div>
                 </div>
+                
+            )}
+            {showMeetingInfo && (
+                <div className="meetingInfo">
+                    <div className="leftInfo">
+                        <div className="dateInfo">
+                            <h3>Schedule Time</h3>
+                            <h4>Fri, Nov 26th, 2023 | 2:00 PM - 3:00 PM EDT</h4>
+                        </div>
+                        <div className="interactionType">
+                            <h3>Interaction Type</h3>
+                            <h4>CF Plus Video Room</h4>
+                        </div>
+                    </div>
+                    <div className="rightInfo">
+                        <div className="recruiterInfo">
+                            <h3>Assigned Recruiter</h3>
+                            <h4>John Sable</h4>
+                        </div>
+                       {/* <div className="availableSlots"> 
+                            <h3>Available Timeslots</h3>
+                           <h4>2</h4><button>Appointment</button>
+                        {/* </div>  */}
+                        <div className="availableSlots"> 
+                        <button>Make an Appointment</button>
+                        </div>
+                    </div>
+                </div>
+                
             )}
         </div>
+        
     );
 }
 
