@@ -6,6 +6,7 @@ import '../css/App.css';
 import Blog from './Blog';
 import Fairs from './Fairs';
 import Register from './Register';
+import DisplayJobSeekers from './DisplayJobSeekers';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/fairs" element={<Fairs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/jobSeekers" element={<DisplayJobSeekers />} />
         </Routes>
       </div>
 

@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const loginRoute = require('./backend/routes/loginRoutes');
 const registerRoute = require('./backend/routes/registerRoutes');
+const getAlljobSeekersRoute = require('./backend/routes/jobSeekerRoutes');
 const port = 4000; // Define the port number for your server
 
 app.listen(port, () => {
@@ -9,10 +11,12 @@ app.listen(port, () => {
 });
 
 app.use(express.json());
+app.use(cors());
 
 // Define your API routes
 app.use('/api', loginRoute); // This line will handle routes like /api/login
-app.use('/api/addUser', registerRoute);
+app.use('/api', registerRoute);
+app.use('/api', getAlljobSeekersRoute);
 
 
 // Handle any other API routes
