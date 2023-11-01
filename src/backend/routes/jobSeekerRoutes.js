@@ -2,7 +2,6 @@ const postJobSeekerData = require('../controllers/postJobSeeker.js');
 const getAllJobSeekersData = require('../controllers/getAllJobSeekers.js');
 
 const displayJobSeekers = async (req, res) => {
-    
     try {
         const users = await getAllJobSeekersData();
         res.json(users);

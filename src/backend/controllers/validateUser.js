@@ -1,13 +1,13 @@
 const { read } = require('../model/data.js');
 
-const getUserData = async (req, res) => {
+const validateUser = async (req, res) => {
+    console.log("entered");
     try {
-        const email = req.params.email;
-        const password = req.params.password;
+        const { email, password } = req.body;
         console.log("login entered: " + email); 
         const users = await read();
         console.log("check user reception: " + email + " " + password);
-        const user = users.filter(user => user.email === email && user.password === password);
+        const user = users.filter(user => user.email == email && user.password == password);
         console.log(user);
         if(user.length){
             res.json(user); // Sending the user back as a response
@@ -19,4 +19,4 @@ const getUserData = async (req, res) => {
     }
 }
 
-module.exports = getUserData;
+module.exports = validateUser;
