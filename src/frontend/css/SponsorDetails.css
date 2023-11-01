@@ -1,0 +1,100 @@
+.sponsorDetails {
+    padding: 20px;
+    width: 70%;
+}
+
+.sponsorDetails h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sponsorDetails p {
+    margin-bottom: 10px;
+}
+
+.sponsorDetails strong {
+    font-weight: bold;
+}
+
+.app {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+
+.meetingDetails {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.meetingInfo {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    display: flex;
+    align-items: column;
+    justify-content: space-between;
+}
+
+
+.meetingDetails h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdownArrow {
+    margin-left: 10px;
+}
+
+.dateInfo, .timeInfo, .interactionType, .recruiterInfo, .availableSlots {
+    margin-bottom: 20px;
+}
+
+h3, h4, h5 {
+    margin-bottom: 10px;
+}
+
+
+.leftInfo, .rightInfo {
+        width: 50%;
+}
+
+
+.rightInfo {
+    align-items: center;
+}
+
+.dateInfo, .timeInfo, .interactionType, .recruiterInfo, .availableSlots {
+    margin-bottom: 20px;
+}
+
+.meetingToggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #016b63;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.clockIcon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.dropdownArrow {
+    margin-left: 32rem;
+}
+

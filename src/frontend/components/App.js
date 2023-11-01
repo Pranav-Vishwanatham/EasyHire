@@ -7,6 +7,7 @@ import Blog from './Blog';
 import Fairs from './Fairs';
 import Register from './Register';
 import DisplayJobSeekers from './DisplayJobSeekers';
+import JobseekerLanding from './jobseekerLanding';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/jobSeekers" element={<DisplayJobSeekers />} />
+          <Route path="/joblist" element={<JobseekerLanding />} />
         </Routes>
       </div>
 
