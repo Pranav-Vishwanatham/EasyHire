@@ -6,7 +6,7 @@ import '../css/App.css';
 import Blog from './Blog';
 import Fairs from './Fairs';
 import Register from './Register';
-import DisplayJobSeekers from './DisplayJobSeekers';
+import RecruiterLanding from './recruiterLanding';
 import JobseekerLanding from './jobseekerLanding';
 
 function App() {
@@ -42,8 +42,8 @@ function App() {
           <Route path="/fairs" element={<Fairs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/jobSeekers" element={<DisplayJobSeekers />} />
-          <Route path="/joblist" element={<JobseekerLanding />} />
+          <Route path="/jobSeekers" element={<RecruiterLanding />} />
+          <Route path="/recruiters" element={<JobseekerLanding />} />
         </Routes>
       </div>
 
