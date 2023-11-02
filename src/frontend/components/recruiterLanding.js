@@ -1,27 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// const fetchJobSeekers = async () => {
-//     try {
-//         const response = await fetch('/api/jobSeekers', {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//         });
-
-//         if (response.ok) {
-//             const userData = await response.json();
-//             alert(`Fetch Successful`);
-//             console.log(response.json());
-//         } else {
-//             const errorMessage = await response.text();
-//             alert(`Error: ${errorMessage}`);
-//         }
-//     } catch (error) {
-//         console.error('Error:', error);
-//     }
-// }
-
 const DisplayJobSeekers = () => {
     const [users, setUsers] = useState([]);
 
@@ -60,6 +38,7 @@ const DisplayJobSeekers = () => {
                         {/* Render user data here */}
                         <p>Name: {user.firstName}</p>
                         <p>Email: {user.email}</p>
+                        <p>phone: {user.phone}</p>
                         {/* Add more details as needed */}
                     </li>
                 ))}

@@ -8,7 +8,13 @@ function Login() {
 
     const handleSuccessfulLogin = (user) => {
         console.log(`Hello ${user[0].firstName}! You are successfully logged in!`);
-        history.push('/jobSeekers'); // Perform the routing to the 'jobSeekers' component after successful login
+        if(user[0].designation == 'Job Seeker') {
+            history.push('/recruiters'); 
+        }
+        else if(user[0].designation == 'recruiter') {
+            history.push('/jobSeekers'); 
+        }
+        // Perform the routing to the 'jobSeekers' component after successful login
     };
 
     const handleSubmit = async (event) => {
@@ -53,7 +59,7 @@ function Login() {
                         <input type="email" id='email-txt' placeholder="Email Address" required />
                         <input type="password" id='password' placeholder="Password" required />
                         <br/><br/>
-                        <Link to="/joblist"><button type="submit">LOG IN</button></Link>
+                        <button type="submit">LOG IN</button>
                     </form>
                     <br/>
                     <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
