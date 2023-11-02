@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-use-history';
 import '../css/login.css';
 
@@ -52,7 +53,7 @@ function Login() {
                         <input type="email" id='email-txt' placeholder="Email Address" required />
                         <input type="password" id='password' placeholder="Password" required />
                         <br/><br/>
-                        <button type="submit">LOG IN</button>
+                        <Link to="/joblist"><button type="submit">LOG IN</button></Link>
                     </form>
                     <br/>
                     <a href="#" className="forgot-password">FORGOT PASSWORD?</a>

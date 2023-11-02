@@ -1,0 +1,17 @@
+.sponsorsList {
+    width: 30%;
+    border-right: 3px solid  #016b63;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.sponsorsList > div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 3px solid  #016b63;
+}
+
+.sponsorsList > div:hover, div::selection {
+    background-color:  #c8e9e5;
+}
+
