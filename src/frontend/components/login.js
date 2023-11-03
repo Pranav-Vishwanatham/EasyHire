@@ -40,11 +40,12 @@ function Login() {
                 alert(`Hello ${userData[0].firstName}`);
                 handleSuccessfulLogin(userData);
             } else {
-                const errorMessage = await response.text();
-                alert(`Error: ${errorMessage}`);
+                const errorMessage = await response.json();
+                alert(`Error: ${errorMessage["error"]}`);
             }
         } catch (error) {
             console.error('Error:', error);
+            alert(`Error: ${error}`);
         }
     };
 
