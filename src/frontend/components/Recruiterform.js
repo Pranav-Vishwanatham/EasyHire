@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-use-history';
 import '../css/Candidateform.css';
 
 function Recruiterform() {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -9,10 +11,13 @@ function Recruiterform() {
     password: '',
     confirmPassword: '',
     companyname: '',
-    // degree: '',
-    // workExperience: '',
-    // resume: null,
   });
+
+  useEffect(() => {
+    // You can perform actions after the state has been updated, for instance:
+    console.log('Form data has been cleared:', formData);
+  }, [formData]); // Watching for changes in formData
+
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (event) => {
@@ -48,12 +53,40 @@ function Recruiterform() {
     return Object.keys(tempErrors).length === 0; // Returns true if no errors
   };
 
-  const handleSubmit = (event) => {
+  const postFormData = async (formData) => {
+    // const firstName = formData.firstName;
+    console.log("formData: " + formData);
+    // JSON.stringify(formData);
+
+    try {
+      const dataToSend = { ...formData, designation: "recruiter" };
+        const response = await fetch('/api/addUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( dataToSend )
+        });
+
+        if (response.ok) {
+            alert(`Registration Successful`);
+        } else {
+            const errorMessage = await response.json();
+            alert(`Error: ${errorMessage["error"]}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert(`Error: ${error}`);
+    }
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
       console.log('Form data submitted:', formData);
       // Process your form data here (e.g., send to an API)
       if (validateForm()) {
+        await postFormData(formData);
         console.log('Form data submitted:', formData);
         // Clear the form
         setFormData({
@@ -62,14 +95,13 @@ function Recruiterform() {
             email: '',
             password: '',
             confirmPassword: '',
-            // degree: '',
-            // workExperience: '',
-            //resume: null,
             companyname:'',
         });
         // setSubmissionStatus('Form submitted successfully!');
         {submissionStatus && <div className="submission-status">{submissionStatus}</div>}
+        history.push('/login'); 
         // Process your form data here (e.g., send to an API)
+        
     }
     }
   };

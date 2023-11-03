@@ -12,10 +12,14 @@ const validateUser = async (req, res) => {
         if(user.length){
             res.json(user); // Sending the user back as a response
         } else {
-            throw new Error("User Not Found");
+            // alert(new Error("User Not Found"));
+            console.log("error: User Not Found");
+            res.status(404).json({ error: "User Not Found" });
         }
     } catch(error) {
-        throw new Error("Something went wrong: " + error);
+        // alert(new Error("Something went wrong!"));
+        console.log("Something went wrong!" + error);
+        res.status(500).json({ error: "Something went wrong!" });
     }
 }
 

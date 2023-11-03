@@ -5,12 +5,15 @@ const getAllJobSeekersData = async (req, res) => {
         const users = await read();
         console.log(users);
         const jobSeekers = await users.filter(user => user.designation == 'Job Seeker');
-        console.log('Job Seekers fetched successfully!!! ');
-        console.log(jobSeekers);
-        res.json(jobSeekers);
-        // res.sendStatus(200);
+        if(jobSeekers.length){
+            res.status(200).json(jobSeekers); // Sending the user back as a response
+        } else {
+            console.log("error: There are no Job Seeker");
+            res.status(404).json({ error: "Job Seekers not found!" });
+        }
     } catch(error) {
-        throw new Error("Something went wrong: " + error);
+        console.log("Something went wrong!" + error);
+        res.status(500).json({ error: "Something went wrong!" });
     }
 }
 

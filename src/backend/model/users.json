@@ -1,7 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
       "firstName": "Sushma",
       "lastName": "Deegoju",
       "age": 24,
@@ -23,7 +22,6 @@
       "designation": "Job Seeker"
     },
     {
-      "id": 2,
       "firstName": "Andy",
       "lastName": "Reddy",
       "age": 24,
@@ -45,7 +43,6 @@
       "designation": "Job Seeker"
     },
     {
-      "id": 3,
       "firstName": "Bharath",
       "lastName": "Reddy",
       "age": 24,
@@ -95,18 +92,84 @@
       "email": "lekha@vt.edu",
       "phone": "+1 5409984213",
       "password": "12345",
-      "birthDate": "2000-12-25",
-      "image": "https://robohash.org/hicveldicta.png",
-      "address": {
-        "address": "1745 T Street Southeast",
-        "city": "Washington",
-        "postalCode": "20020",
-        "state": "DC"
-      },
-      "university": "Virginia Tech",
-      "workExperience": "2 years as Software Engineer",
-      "resumeLink": "",
+      "companyName": "Adobe",
       "designation": "recruiter"
+    },
+    {
+      "firstName": "Sushma",
+      "lastName": "Deegoju",
+      "email": "sushmadeegoju16@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "Delloitte",
+      "designation": "recruiter"
+    },
+    {
+      "firstName": "Suchismita",
+      "lastName": "Sarkar",
+      "email": "suchi@vt.edu",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "Delloitte",
+      "designation": "recruiter"
+    },
+    {
+      "firstName": "Sai Kiran",
+      "lastName": "Reddy",
+      "email": "kiran@vt.edu",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "degree": "Computer Science",
+      "workExperience": "Two Years as Software Engineer",
+      "resume": {},
+      "designation": "Job Seeker"
+    },
+    {
+      "firstName": "random",
+      "lastName": "recruiter",
+      "email": "random@vt.edu",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "American Express",
+      "designation": "recruiter"
+    },
+    {
+      "firstName": "Sushma",
+      "lastName": "Deegoju",
+      "email": "sushmadeegoju16@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "Delloitte",
+      "designation": "recruiter"
+    },
+    {
+      "firstName": "Sushma",
+      "lastName": "Deegoju",
+      "email": "sushmadeegoju16@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "American Express",
+      "designation": "recruiter"
+    },
+    {
+      "firstName": "Sushma",
+      "lastName": "Deegoju",
+      "email": "sushmadeegoju16@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "Delloitte",
+      "designation": "recruiter"
+    },
+    {
+      "firstName": "Sushma",
+      "lastName": "Deegoju",
+      "email": "sushmadeegoju16@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "degree": "Computer Science",
+      "workExperience": "nbkkj",
+      "resume": {},
+      "designation": "Job Seeker"
     }
   ]
 }
