@@ -7,13 +7,14 @@ function read() {
     }
     catch(error) {
         console.log('Error reading the file', error);
-        return [];
+        return { error: 'Error reading the file' };
     }
 }
 
 function write(data) {
     try{
         const modifiedUsers = JSON.parse(fs.readFileSync('src/backend/model/users.json', 'utf-8')).users;
+        // console(data, data);
         modifiedUsers.push(data);
         const userData = { users : modifiedUsers};
         console.log(userData);
@@ -24,4 +25,15 @@ function write(data) {
     }
 }
 
-module.exports = { read, write };
+function readCompanies() {
+    try{
+        const companies = JSON.parse(fs.readFileSync('src/backend/model/companies.json', 'utf-8')).companies;
+        return companies;
+    }
+    catch(error) {
+        console.log('Error reading the file', error);
+        return { error: 'Error reading the file' };
+    }
+}
+
+module.exports = { read, write, readCompanies };

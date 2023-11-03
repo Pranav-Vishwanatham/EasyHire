@@ -7,7 +7,8 @@ const addUserData = async (req, res) => {
         console.log("Written User data successfully");
         res.sendStatus(201);
     } catch(error) {
-        throw new Error("Something went wrong: " + error);
+        console.log("Something went wrong!" + error);
+        res.status(500).json({ error: "Something went wrong!" });
     }
 }
 

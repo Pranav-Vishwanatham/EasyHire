@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-use-history';
 import '../css/Candidateform.css';
 
 function CandidateForm() {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,6 +22,33 @@ function CandidateForm() {
       ...formData,
       [name]: value,
     });
+  };
+
+  const postFormData = async (formData) => {
+    // const firstName = formData.firstName;
+    console.log("formData: " + formData);
+    // JSON.stringify(formData);
+
+    try {
+      const dataToSend = { ...formData, designation: "Job Seeker" };
+        const response = await fetch('/api/addUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( dataToSend )
+        });
+
+        if (response.ok) {
+            alert(`Registration Successful`);
+        } else {
+            const errorMessage = await response.json();
+            alert(`Error: ${errorMessage["error"]}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert(`Error: ${error}`);
+    }
   };
 
   const handleFileChange = (event) => {
@@ -54,6 +83,7 @@ function CandidateForm() {
       // Process your form data here (e.g., send to an API)
       if (validateForm()) {
         console.log('Form data submitted:', formData);
+        postFormData(formData);
         // Clear the form
         setFormData({
             firstName: '',
@@ -68,6 +98,7 @@ function CandidateForm() {
         // setSubmissionStatus('Form submitted successfully!');
         {submissionStatus && <div className="submission-status">{submissionStatus}</div>}
         // Process your form data here (e.g., send to an API)
+        history.push('/login'); 
     }
     }
   };
