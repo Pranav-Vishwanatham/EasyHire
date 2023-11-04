@@ -2,14 +2,22 @@ import React, { useState } from 'react';
 import '../css/SponsorDetails.css';
 
 function SponsorDetails(props) {
-    const { name, jobId, description, requirements, prefered } = props.sponsor;
+    const { name,role, jobId, description, requirements, prefered } = props.sponsor;
     const requirementItems = requirements.split('.').filter(item => item.trim() !== '');
     const preferedItems = prefered.split('.').filter(item => item.trim() !== '');
     const [showMeetingInfo, setShowMeetingInfo] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleAppointmentClick = () => {
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 2000); // 3 seconds
+    };
 
     return (
         <div className="sponsorDetails">
-            <h1>{name}</h1>
+            <h1>{role}</h1>
             <p><strong>About Us</strong><br></br><br></br>{description}</p>
             <strong>Key Requirements</strong>
             <ul>
@@ -54,7 +62,12 @@ function SponsorDetails(props) {
                            <h4>2</h4><button>Appointment</button>
                         {/* </div>  */}
                         <div className="availableSlots"> 
-                        <button>Make an Appointment</button>
+                        <button onClick={handleAppointmentClick}>Make an Appointment</button>
+                        {showPopup && (
+                <span className="popup">
+                     ✔ Your meeting is scheduled.
+                </span>
+            )}
                         </div>
                     </div>
                 </div>
@@ -82,7 +95,12 @@ function SponsorDetails(props) {
                            <h4>2</h4><button>Appointment</button>
                         {/* </div>  */}
                         <div className="availableSlots"> 
-                        <button>Make an Appointment</button>
+                        <button onClick={handleAppointmentClick}>Make an Appointment</button>
+                        {showPopup && (
+                <span className="popup">
+                     ✔ Your meeting is scheduled.
+                </span>
+            )}
                         </div>
                     </div>
                 </div>
