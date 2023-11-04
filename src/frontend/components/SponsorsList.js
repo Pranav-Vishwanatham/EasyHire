@@ -6,8 +6,8 @@ function SponsorsList(props) {
         <div className="sponsorsList">
             {props.sponsors.map((sponsor, index) => (
                 <div key={index} onClick={() => props.onSelect(sponsor)}>
-                    {sponsor.name}<br></br>
-                    Interview Location 
+                    {sponsor.role}<br></br><br></br>
+                    {sponsor.name}
                 </div>
             ))}
         </div>
