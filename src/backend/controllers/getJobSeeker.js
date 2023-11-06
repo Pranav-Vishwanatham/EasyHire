@@ -13,3 +13,5 @@ const getJobSeekerData = async (jobSeekerId) => {
 }
 
 module.exports = getJobSeekerData;
+
+

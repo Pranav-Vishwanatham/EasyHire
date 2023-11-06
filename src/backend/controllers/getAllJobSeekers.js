@@ -17,4 +17,5 @@ const getAllJobSeekersData = async (req, res) => {
     }
 }
 
+
 module.exports = getAllJobSeekersData;
