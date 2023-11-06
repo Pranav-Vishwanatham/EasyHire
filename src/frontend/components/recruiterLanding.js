@@ -6,6 +6,7 @@ const DisplayJobSeekers = () => {
   const [users, setUsers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -49,45 +50,65 @@ const DisplayJobSeekers = () => {
     }
   };
 
-  //   return (
-  //     <div class="recruiter-container">
-  //       <h1>User List</h1>
-  //       <ul>
-  //         {users.map((user, index) => (
-  //           <li key={index}>
-  //             {/* Render user data here */}
-  //             <p>Name: {user.firstName}</p>
-  //             <p>Email: {user.email}</p>
-  //             <p>phone: {user.phone}</p>
-  //             {/* Add more details as needed */}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   );
-
   return (
-    <div className="recruiter-container">
-      <h1>User Details</h1>
-      <button onClick={handleLogout}>Logout</button>
-      {users.length > 0 && (
-        <div className="user-card">
-          <p>Name: {users[currentIndex].firstName}</p>
-          <p>Email: {users[currentIndex].email}</p>
-          <p>Phone: {users[currentIndex].phone}</p>
-          <div className="card-navigation">
-            <button onClick={handlePrev} disabled={currentIndex === 0}>
-              Previous
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={currentIndex === users.length - 1}
-            >
-              Next
-            </button>
+    <div class="recruiter-landing">
+      <div class="lgot-btn">
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+      <div className="recruiter-container">
+        <h1>User Details</h1>
+        {users.length > 0 && (
+          <div className="user-card">
+            <img
+              src={users[currentIndex].image}
+              alt={`${users[currentIndex].firstName}'s avatar`}
+              className="user-image"
+            />
+            <div class="user-details">
+              <p>Name: {users[currentIndex].firstName}</p>
+              <p>Email: {users[currentIndex].email}</p>
+              <p>Phone: {users[currentIndex].phone}</p>
+              <p>
+                Birth Date:{" "}
+                {new Date(users[currentIndex].birthDate).toLocaleDateString()}
+              </p>
+              <p>University: {users[currentIndex].university}</p>
+              <p>Experience: {users[currentIndex].workExperience}</p>
+            </div>
+            {users[currentIndex].resume && (
+              <>
+                <div class="btns-div">
+                  <button onClick={() => setShowModal(true)}>
+                    View Resume
+                  </button>
+                  <button onClick={() => setShowModal(false)}>Close</button>
+                </div>
+                {showModal && (
+                  <div className="modal">
+                    <iframe
+                      src={users[currentIndex].resume}
+                      width="100%"
+                      height="500px"
+                      title="Resume Preview"
+                    />
+                  </div>
+                )}
+              </>
+            )}
+            <div className="card-navigation">
+              <button onClick={handlePrev} disabled={currentIndex === 0}>
+                Previous
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={currentIndex === users.length - 1}
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
