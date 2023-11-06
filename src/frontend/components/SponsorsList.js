@@ -12,15 +12,19 @@ function SponsorsList(props) {
 
     return (
         <div className="sponsorsList">
-            {props.sponsors.map((sponsor, index) => (
+            {props.sponsors.map((sponsor) => (
                 <div
-                    key={index}
+                    key={sponsor.id} // Assuming each sponsor has a unique id
                     onClick={() => handleSelect(sponsor)}
-                    // Add a class to indicate if this sponsor is the selected one
-                    className={selectedSponsor === sponsor ? 'selected' : ''}
+                    className={`sponsorItem ${selectedSponsor === sponsor ? 'selected' : ''}`}
                 >
-                    Job Role: {sponsor.role}<br /><br />
-                    Company Name: {sponsor.name}
+                    <div className="sponsorContent">
+                        <div className="sponsorText">
+                            <h3>{sponsor.role}</h3>
+                            <h4>{sponsor.name}</h4>
+                        </div>
+                        <img src={sponsor.imageUrl} alt={sponsor.name} className="sponsorImage" />
+                    </div>
                 </div>
             ))}
         </div>
