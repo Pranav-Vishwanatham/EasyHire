@@ -1,5 +1,5 @@
 .recruiter-container {
-  max-width: 600px;
+  width: 600px;
   margin: 20px auto;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -16,6 +16,10 @@
   padding: 20px;
   border-radius: 8px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-navigation {
@@ -45,4 +49,16 @@ button:disabled {
 button:not(:disabled):hover {
   font-weight: bold;
   font-size: medium;
+}
+
+.recruiter-landing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.btns-div {
+  display: flex;
+  justify-content: space-around;
 }
