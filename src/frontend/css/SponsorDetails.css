@@ -19,7 +19,6 @@
 
 .app {
     font-family: Arial, sans-serif;
-    padding: 20px;
     background-color: #f5f5f5;
 }
 
@@ -51,12 +50,13 @@
 button {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-right: 10px;
+
 }
 
 .dropdownArrow {
-    margin-left: 10px;
+    margin-left: 100px;
 }
 
 .dateInfo, .timeInfo, .interactionType, .recruiterInfo, .availableSlots {
@@ -97,7 +97,7 @@ h3, h4, h5 {
 }
 
 .dropdownArrow {
-    margin-left: 32rem;
+    margin-left: 40rem;
 }
 
 .popup {
