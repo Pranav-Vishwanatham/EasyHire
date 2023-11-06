@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/recruiterLanding.css";
 
 const DisplayJobSeekers = () => {
   const [users, setUsers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch data when the component mounts
     fetchData();
   }, []);
+
+  const handleLogout = () => {
+    navigate("/login");
+  };
 
   const handleNext = () => {
     if (currentIndex < users.length - 1) {
@@ -63,6 +69,7 @@ const DisplayJobSeekers = () => {
   return (
     <div className="recruiter-container">
       <h1>User Details</h1>
+      <button onClick={handleLogout}>Logout</button>
       {users.length > 0 && (
         <div className="user-card">
           <p>Name: {users[currentIndex].firstName}</p>
