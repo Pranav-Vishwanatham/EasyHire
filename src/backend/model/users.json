@@ -18,7 +18,7 @@
       },
       "university": "Virginia Tech",
       "workExperience": "2 years as Software Engineer",
-      "resumeLink": "",
+      "resume": "https://drive.google.com/file/d/1vF8EoqRCfR9wAZihkGVj8tT7XXrsfuVn/view?usp=sharing",
       "designation": "Job Seeker"
     },
     {
@@ -27,9 +27,9 @@
       "age": 24,
       "gender": "Male",
       "email": "andy@vt.edu",
-      "phone": "+1 5409984213",
+      "phone": "+1 5409980123",
       "password": "12345",
-      "birthDate": "2000-12-25",
+      "birthDate": "2001-10-19",
       "image": "https://robohash.org/hicveldicta.png",
       "address": {
         "address": "1745 T Street Southeast",
@@ -38,8 +38,8 @@
         "state": "DC"
       },
       "university": "Virginia Tech",
-      "workExperience": "2 years as Software Engineer",
-      "resumeLink": "",
+      "workExperience": "2 years as Application Engineer",
+      "resume": {},
       "designation": "Job Seeker"
     },
     {
@@ -60,7 +60,7 @@
       },
       "university": "Virginia Tech",
       "workExperience": "2 years as Software Engineer",
-      "resumeLink": "",
+      "resume": {},
       "designation": "recruiter"
     },
     {
@@ -81,7 +81,7 @@
       },
       "university": "Virginia Tech",
       "workExperience": "2 years as Software Engineer",
-      "resumeLink": "",
+      "resume": {},
       "designation": "recruiter"
     },
     {
@@ -181,6 +181,26 @@
       "workExperience": "yes",
       "resume": {},
       "designation": "Job Seeker"
+    },
+    {
+      "firstName": "Gayathri",
+      "lastName": "Pendyala",
+      "email": "gayathri@vt.edu",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "degree": "Masters in Computer Science",
+      "workExperience": "Worked in TCS for 3 years",
+      "resume": {},
+      "designation": "Job Seeker"
+    },
+    {
+      "firstName": "saikiran",
+      "lastName": "ramacharla",
+      "email": "kiran@amazon.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "companyname": "Amazon",
+      "designation": "recruiter"
     }
   ]
 }
