@@ -170,6 +170,17 @@
       "workExperience": "nbkkj",
       "resume": {},
       "designation": "Job Seeker"
+    },
+    {
+      "firstName": "Pranav",
+      "lastName": "Vishwanatham",
+      "email": "pranav0909@vt.edu",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "degree": "Masters",
+      "workExperience": "yes",
+      "resume": {},
+      "designation": "Job Seeker"
     }
   ]
 }
