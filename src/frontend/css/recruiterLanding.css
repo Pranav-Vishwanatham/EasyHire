@@ -58,7 +58,7 @@ button:not(:disabled):hover {
   padding: 20px;
 }
 
-.btns-div {
+/* .btns-div {
   display: flex;
   justify-content: space-around;
-}
+} */
