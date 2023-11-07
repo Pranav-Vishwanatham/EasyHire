@@ -56,7 +56,7 @@ const DisplayJobSeekers = () => {
         <button onClick={handleLogout}>Logout</button>
       </div>
       <div className="recruiter-container">
-        <h1>Candidates Details</h1>
+        <h1>Candidate Details</h1>
         {users.length > 0 && (
           <div className="user-card">
             <img
