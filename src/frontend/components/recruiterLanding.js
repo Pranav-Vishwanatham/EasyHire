@@ -56,7 +56,7 @@ const DisplayJobSeekers = () => {
         <button onClick={handleLogout}>Logout</button>
       </div>
       <div className="recruiter-container">
-        <h1>User Details</h1>
+       <h1>Candidates Details</h1>
         {users.length > 0 && (
           <div className="user-card">
             <img
@@ -68,14 +68,14 @@ const DisplayJobSeekers = () => {
               <p>Name: {users[currentIndex].firstName}</p>
               <p>Email: {users[currentIndex].email}</p>
               <p>Phone: {users[currentIndex].phone}</p>
-              <p>
-                Birth Date:{" "}
-                {new Date(users[currentIndex].birthDate).toLocaleDateString()}
-              </p>
-              <p>University: {users[currentIndex].university}</p>
+              <p>Degree: {users[currentIndex].degree}</p>
               <p>Experience: {users[currentIndex].workExperience}</p>
+              <p>Linkedin Profile URL: 
+              <a href={users[currentIndex].linkedin} target="_blank" rel="noopener noreferrer">
+      {users[currentIndex].linkedin}
+    </a> </p>
             </div>
-            {users[currentIndex].resume && (
+            {/* {users[currentIndex].resume && (
               <>
                 <div class="btns-div">
                   <button onClick={() => setShowModal(true)}>
@@ -94,7 +94,33 @@ const DisplayJobSeekers = () => {
                   </div>
                 )}
               </>
-            )}
+            )} */}
+
+{users[currentIndex].resume && (
+  <>
+    <div className="btns-div">
+      {!showModal && (
+        <button onClick={() => setShowModal(true)}>
+          View Resume
+        </button>
+      )}
+      {showModal && (
+        <>
+          <button onClick={() => setShowModal(false)}>Close</button>
+          <div className="modal">
+            <iframe
+              src={users[currentIndex].resume}
+              width="100%"
+              height="500px"
+              title="Resume Preview"
+            />
+          </div>
+        </>
+      )}
+    </div>
+  </>
+)}
+
             <div className="card-navigation">
               <button onClick={handlePrev} disabled={currentIndex === 0}>
                 Previous
