@@ -10,8 +10,11 @@ function CandidateForm() {
     email: '',
     password: '',
     confirmPassword: '',
+    phone: '',
     degree: '',
     workExperience: '',
+    skillset:'',
+    linkedin:'',
     resume: null,
   });
   const [errors, setErrors] = useState({});
@@ -70,6 +73,7 @@ function CandidateForm() {
     if (!formData.email.includes('@')) tempErrors.email = 'Email is invalid.';
     if (formData.password.length < 8) tempErrors.password = 'Password should be at least 8 characters.';
     if (formData.password !== formData.confirmPassword) tempErrors.confirmPassword = 'Passwords do not match.';
+    if (formData.phone.length < 10) tempErrors.phone = 'Please enter a valid phone number.';
     if (!formData.resume) tempErrors.resume = 'Resume is required.';
 
     setErrors(tempErrors);
@@ -91,8 +95,11 @@ function CandidateForm() {
             email: '',
             password: '',
             confirmPassword: '',
+            phone:'',
             degree: '',
             workExperience: '',
+            skillset:'',
+            linkedin:'',
             resume: null,
         });
         // setSubmissionStatus('Form submitted successfully!');
@@ -119,10 +126,12 @@ function CandidateForm() {
 
       <input type="password" name="confirmPassword" placeholder="Re-enter Password" onChange={handleInputChange} />
       {errors.confirmPassword && <div>{errors.confirmPassword}</div>}
-
+      <input type="phone" name="phone" placeholder="Phone number" onChange={handleInputChange} />
+      {errors.phone && <div>{errors.phone}</div>}
       <input name="degree" placeholder="Degree" onChange={handleInputChange} />
-
+      <textarea name="skillset" placeholder="Eg: Java, Python, SQL server....." onChange={handleInputChange}></textarea>
       <textarea name="workExperience" placeholder="Work Experience (if any)" onChange={handleInputChange}></textarea>
+      <textarea name="linkedin" placeholder="Linkedin Profile URL" onChange={handleInputChange}></textarea>
 
       <input type="file" onChange={handleFileChange} />
       {errors.resume && <div>{errors.resume}</div>}
