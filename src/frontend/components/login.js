@@ -7,11 +7,12 @@ function Login() {
     const history = useHistory(); // Get the history object from React Router
 
     const handleSuccessfulLogin = (user) => {
-        console.log(`Hello ${user[0].firstName}! You are successfully logged in!`);
-        if(user[0].designation == 'Job Seeker') {
-            history.push('/recruiters'); 
+        console.log(`Hello ${user.firstName}! You are successfully logged in!`);
+        if(user.designation == 'jobSeeker') {
+            console.log("entered successful login");
+            history.push('/companies'); 
         }
-        else if(user[0].designation == 'recruiter') {
+        else if(user.designation == 'recruiter') {
             history.push('/jobSeekers'); 
         }
         // Perform the routing to the 'jobSeekers' component after successful login
@@ -19,32 +20,36 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const email = document.getElementById('email-txt').value;
-        const password = document.getElementById('password').value;
+        const loginEmail = document.getElementById('email-txt').value;
+        const loginPassword = document.getElementById('password').value;
 
         // Do something with the email and password, for example, log them to the console
-        console.log('Email:', email);
-        console.log('Password:', password);
+        console.log('Email:', loginEmail);
+        console.log('Password:', loginPassword);
 
         try {
-            const response = await fetch('/api/validate', {
+            const response = await fetch('/validate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ loginEmail, loginPassword })
             });
 
             if (response.ok) {
                 const userData = await response.json();
-                alert(`Hello ${userData[0].firstName}`);
+                console.log(userData);
+                alert(`Hello ${userData.firstName}`);
                 handleSuccessfulLogin(userData);
             } else {
+                const errorMessage = await response.json();
+                alert(`Error: ${errorMessage["error"]}`);
                 const errorMessage = await response.json();
                 alert(`Error: ${errorMessage["error"]}`);
             }
         } catch (error) {
             console.error('Error:', error);
+            alert(`Error: ${error}`);
             alert(`Error: ${error}`);
         }
     };
@@ -60,6 +65,7 @@ function Login() {
                         <input type="email" id='email-txt' placeholder="Email Address" required />
                         <input type="password" id='password' placeholder="Password" required />
                         <br/><br/>
+                        <button type="submit">LOG IN</button>
                         <button type="submit">LOG IN</button>
                     </form>
                     <br/>

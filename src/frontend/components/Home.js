@@ -15,7 +15,7 @@ function Home() {
             <h3>We create meaningful connections between companies and candidates.<br/><br/>
               Whether you need a job or need to fill one, we're your trusted partner.</h3></div>
           {/* <div class= "side-image"></div></div> */}
-            <div><img src="/homeimg.jpeg"></img></div>
+            <div><img src="/images/homeimg.jpeg"></img></div>
           </div>
       </main>
 

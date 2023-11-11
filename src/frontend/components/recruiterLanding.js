@@ -31,7 +31,7 @@ const DisplayJobSeekers = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/jobSeekers", {
+      const response = await fetch("/jobSeekersData", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -40,6 +40,7 @@ const DisplayJobSeekers = () => {
 
       if (response.ok) {
         const userData = await response.json();
+        console.log("userData: " + userData);
         setUsers(userData); // Update the state with the fetched data
       } else {
         const errorMessage = await response.text();
@@ -73,11 +74,11 @@ const DisplayJobSeekers = () => {
               <p>
                 Linkedin Profile URL:
                 <a
-                  href={users[currentIndex].linkedin}
+                  href={users[currentIndex].linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {users[currentIndex].linkedin}
+                  {users[currentIndex].linkedIn}
                 </a>{" "}
               </p>
             </div>

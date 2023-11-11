@@ -8,6 +8,16 @@ import Fairs from "./Fairs";
 import Register from "./Register";
 import RecruiterLanding from "./recruiterLanding";
 import JobseekerLanding from "./jobseekerLanding";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import Login from "./login";
+import "../css/App.css";
+import Blog from "./Blog";
+import Fairs from "./Fairs";
+import Register from "./Register";
+import RecruiterLanding from "./recruiterLanding";
+import JobseekerLanding from "./jobseekerLanding";
 
 function App() {
   return (
@@ -44,9 +54,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
-        <Route path="/recruiters" element={<JobseekerLanding />} />
+        <Route path="/companies" element={<JobseekerLanding />} />
       </Routes>
 
+      <footer>
+        <section>
+          <p> &copy; 2023 EasyHire, Inc</p>
+        </section>
       <footer>
         <section>
           <p> &copy; 2023 EasyHire, Inc</p>
@@ -55,7 +69,14 @@ function App() {
         <section>
           <p> About | Directions | Contact Us</p>
         </section>
+        <section>
+          <p> About | Directions | Contact Us</p>
+        </section>
 
+        <section>
+          <p> Privacy Policy </p>
+        </section>
+      </footer>
         <section>
           <p> Privacy Policy </p>
         </section>
