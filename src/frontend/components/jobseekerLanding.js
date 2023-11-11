@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import React, { useState, useEffect } from 'react';
 import SponsorsList from './SponsorsList';
 import SponsorDetails from './SponsorDetails';
 import '../css/jobseekerLanding.css';

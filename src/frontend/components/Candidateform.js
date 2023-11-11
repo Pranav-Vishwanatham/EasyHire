@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-use-history';
-import { useHistory } from 'react-router-use-history';
 import '../css/Candidateform.css';
 
 function CandidateForm() {
-  const history = useHistory();
   const history = useHistory();
   const [formData, setFormData] = useState({
     firstName: '',

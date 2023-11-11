@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../css/SponsorDetails.css';
 
 function SponsorDetails(props) {
-    const { name,role, jobId, description, requirements, prefered } = props.sponsor;
+    const { name, role, jobId, description, requirements, prefered } = props.sponsor;
     const requirementItems = requirements.split('.').filter(item => item.trim() !== '');
     const preferedItems = prefered.split('.').filter(item => item.trim() !== '');
     const [showMeetingInfo, setShowMeetingInfo] = useState(false);
