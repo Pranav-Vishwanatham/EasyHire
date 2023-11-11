@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-use-history';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-use-history';
 import '../css/Candidateform.css';
 
 function Recruiterform() {
+  const history = useHistory();
   const history = useHistory();
   const [formData, setFormData] = useState({
     firstName: '',
@@ -87,6 +90,7 @@ function Recruiterform() {
       // Process your form data here (e.g., send to an API)
       if (validateForm()) {
         await postFormData(formData);
+        await postFormData(formData);
         console.log('Form data submitted:', formData);
         // Clear the form
         setFormData({
@@ -100,7 +104,9 @@ function Recruiterform() {
         // setSubmissionStatus('Form submitted successfully!');
         {submissionStatus && <div className="submission-status">{submissionStatus}</div>}
         history.push('/login'); 
+        history.push('/login'); 
         // Process your form data here (e.g., send to an API)
+        
         
     }
     }

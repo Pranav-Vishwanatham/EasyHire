@@ -44,9 +44,12 @@ function Login() {
             } else {
                 const errorMessage = await response.json();
                 alert(`Error: ${errorMessage["error"]}`);
+                const errorMessage = await response.json();
+                alert(`Error: ${errorMessage["error"]}`);
             }
         } catch (error) {
             console.error('Error:', error);
+            alert(`Error: ${error}`);
             alert(`Error: ${error}`);
         }
     };
@@ -62,6 +65,7 @@ function Login() {
                         <input type="email" id='email-txt' placeholder="Email Address" required />
                         <input type="password" id='password' placeholder="Password" required />
                         <br/><br/>
+                        <button type="submit">LOG IN</button>
                         <button type="submit">LOG IN</button>
                     </form>
                     <br/>
