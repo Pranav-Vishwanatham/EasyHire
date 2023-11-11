@@ -14,8 +14,8 @@ function CandidateForm() {
     degree: '',
     workExperience: '',
     skillset:'',
-    linkedin:'',
-    resume: null,
+    linkedIn:'',
+    resume: "https://drive.google.com/file/d/1jhPg_R_dyx8HRx11dhcdazAHQqGUGpa5/preview",
   });
   const [errors, setErrors] = useState({});
 
@@ -34,7 +34,7 @@ function CandidateForm() {
 
     try {
       const dataToSend = { ...formData, designation: "Job Seeker" };
-        const response = await fetch('/api/addUser', {
+        const response = await fetch('/addJobSeeker', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ function CandidateForm() {
     if (formData.password.length < 8) tempErrors.password = 'Password should be at least 8 characters.';
     if (formData.password !== formData.confirmPassword) tempErrors.confirmPassword = 'Passwords do not match.';
     if (formData.phone.length < 10) tempErrors.phone = 'Please enter a valid phone number.';
-    if (!formData.resume) tempErrors.resume = 'Resume is required.';
+    // if (!formData.resume) tempErrors.resume = 'Resume is required.';
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0; // Returns true if no errors
@@ -99,7 +99,7 @@ function CandidateForm() {
             degree: '',
             workExperience: '',
             skillset:'',
-            linkedin:'',
+            linkedIn:'',
             resume: null,
         });
         // setSubmissionStatus('Form submitted successfully!');
@@ -131,7 +131,7 @@ function CandidateForm() {
       <input name="degree" placeholder="Degree" onChange={handleInputChange} />
       <textarea name="skillset" placeholder="Eg: Java, Python, SQL server....." onChange={handleInputChange}></textarea>
       <textarea name="workExperience" placeholder="Work Experience (if any)" onChange={handleInputChange}></textarea>
-      <textarea name="linkedin" placeholder="Linkedin Profile URL" onChange={handleInputChange}></textarea>
+      <textarea name="linkedIn" placeholder="Linkedin Profile URL" onChange={handleInputChange}></textarea>
 
       <input type="file" onChange={handleFileChange} />
       {errors.resume && <div>{errors.resume}</div>}

@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const getAllJobSeekers = require('../controllers/getAllJobSeekers');
+const jobSeekerController = require('../controllers/jobSeekerController');
 
 // Define the route for user login
-router.get('/jobSeekers', getAllJobSeekers);
+router.get('/jobSeekersData', jobSeekerController.getAlljobSeekers);
+router.post('/addJobSeeker', jobSeekerController.postjobSeeker);
+router.get('/jobSeeker/:emailId', jobSeekerController.getJobSeeker);
 
 module.exports = router;

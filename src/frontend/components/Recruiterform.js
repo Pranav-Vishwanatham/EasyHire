@@ -10,7 +10,7 @@ function Recruiterform() {
     email: '',
     password: '',
     confirmPassword: '',
-    companyname: '',
+    companyName: '',
   });
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function Recruiterform() {
 
     try {
       const dataToSend = { ...formData, designation: "recruiter" };
-        const response = await fetch('/api/addUser', {
+        const response = await fetch('/addRecruiter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ function Recruiterform() {
             email: '',
             password: '',
             confirmPassword: '',
-            companyname:'',
+            companyName:'',
         });
         // setSubmissionStatus('Form submitted successfully!');
         {submissionStatus && <div className="submission-status">{submissionStatus}</div>}
@@ -122,7 +122,7 @@ function Recruiterform() {
 
       <input type="password" name="confirmPassword" placeholder="Re-enter Password" onChange={handleInputChange} />
       {errors.confirmPassword && <div>{errors.confirmPassword}</div>}
-      <input type="companyname" name="companyname" placeholder="Company Name" onChange={handleInputChange} />
+      <input type="companyName" name="companyName" placeholder="Company Name" onChange={handleInputChange} />
       {errors.confirmPassword && <div>{errors.confirmPassword}</div>}
 
       {/* <input name="degree" placeholder="Degree" onChange={handleInputChange} /> */}

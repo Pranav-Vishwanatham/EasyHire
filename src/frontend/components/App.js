@@ -44,7 +44,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
-        <Route path="/recruiters" element={<JobseekerLanding />} />
+        <Route path="/companies" element={<JobseekerLanding />} />
       </Routes>
 
       <footer>
