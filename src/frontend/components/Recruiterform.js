@@ -87,7 +87,6 @@ function Recruiterform() {
       // Process your form data here (e.g., send to an API)
       if (validateForm()) {
         await postFormData(formData);
-        await postFormData(formData);
         console.log('Form data submitted:', formData);
         // Clear the form
         setFormData({
@@ -100,7 +99,6 @@ function Recruiterform() {
         });
         // setSubmissionStatus('Form submitted successfully!');
         {submissionStatus && <div className="submission-status">{submissionStatus}</div>}
-        history.push('/login'); 
         history.push('/login'); 
         // Process your form data here (e.g., send to an API)
         

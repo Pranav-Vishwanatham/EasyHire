@@ -89,7 +89,6 @@ function CandidateForm() {
       if (validateForm()) {
         console.log('Form data submitted:', formData);
         postFormData(formData);
-        postFormData(formData);
         // Clear the form
         setFormData({
             firstName: '',
@@ -108,7 +107,6 @@ function CandidateForm() {
         // setSubmissionStatus('Form submitted successfully!');
         {submissionStatus && <div className="submission-status">{submissionStatus}</div>}
         // Process your form data here (e.g., send to an API)
-        history.push('/login'); 
         history.push('/login'); 
     }
     }
@@ -132,10 +130,7 @@ function CandidateForm() {
       {errors.confirmPassword && <div>{errors.confirmPassword}</div>}
       <input type="phone" name="phone" placeholder="Phone number" onChange={handleInputChange} />
       {errors.phone && <div>{errors.phone}</div>}
-      <input type="phone" name="phone" placeholder="Phone number" onChange={handleInputChange} />
-      {errors.phone && <div>{errors.phone}</div>}
       <input name="degree" placeholder="Degree" onChange={handleInputChange} />
-      <textarea name="skillset" placeholder="Eg: Java, Python, SQL server....." onChange={handleInputChange}></textarea>
       <textarea name="skillset" placeholder="Eg: Java, Python, SQL server....." onChange={handleInputChange}></textarea>
       <textarea name="workExperience" placeholder="Work Experience (if any)" onChange={handleInputChange}></textarea>
       <textarea name="linkedIn" placeholder="Linkedin Profile URL" onChange={handleInputChange}></textarea>
