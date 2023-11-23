@@ -49,6 +49,10 @@ function Login() {
     }
   };
 
+  const handleForgotPassword = () => {
+    navigate("/forgot-password"); // Navigate to the forgot password route
+  };
+
   return (
     <div>
       <div className="login-container">
@@ -74,7 +78,11 @@ function Login() {
             <button type="submit">LOG IN</button>
           </form>
           <br />
-          <a href="#" className="forgot-password">
+          <a
+            href="#"
+            onClick={handleForgotPassword}
+            className="forgot-password"
+          >
             FORGOT PASSWORD?
           </a>
         </div>
