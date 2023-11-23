@@ -12,27 +12,28 @@ function SponsorsList(props) {
 
   return (
     <div className="sponsorsList">
-      {props.sponsors.map((sponsor) => (
-        <div
-          key={sponsor.id} // Assuming each sponsor has a unique id
-          onClick={() => handleSelect(sponsor)}
-          className={`sponsorItem ${
-            selectedSponsor === sponsor ? "selected" : ""
-          }`}
-        >
-          <div className="sponsorContent">
-            <div className="sponsorText">
-              <h3>{sponsor.role}</h3>
-              <h4>{sponsor.name}</h4>
+      {props.sponsors.map((sponsor) => {
+        const imageName = `${sponsor.name}.jpeg`;
+        const imageUrl = `/images/companies/${imageName}`;
+
+        return (
+          <div
+            key={sponsor.id}
+            onClick={() => handleSelect(sponsor)}
+            className={`sponsorItem ${
+              selectedSponsor === sponsor ? "selected" : ""
+            }`}
+          >
+            <div className="sponsorContent">
+              <div className="sponsorText">
+                <h3>{sponsor.role}</h3>
+                <h4>{sponsor.name}</h4>
+              </div>
+              <img src={imageUrl} alt={sponsor.name} className="sponsorImage" />
             </div>
-            <img
-              src={sponsor.imageUrl}
-              alt={sponsor.name}
-              className="sponsorImage"
-            />
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
