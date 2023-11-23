@@ -8,6 +8,7 @@ import Fairs from "./Fairs";
 import Register from "./Register";
 import RecruiterLanding from "./recruiterLanding";
 import JobseekerLanding from "./jobseekerLanding";
+import ForgotPassword from "./ForgotPassword";
 
 function App() {
   return (
@@ -45,28 +46,16 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
         <Route path="/companies" element={<JobseekerLanding />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
 
       <footer>
         <section>
           <p> &copy; 2023 EasyHire, Inc</p>
         </section>
-      <footer>
         <section>
-          <p> &copy; 2023 EasyHire, Inc</p>
+          <p> About Us | Directions | Contact Us</p>
         </section>
-
-        <section>
-          <p> About | Directions | Contact Us</p>
-        </section>
-        <section>
-          <p> About | Directions | Contact Us</p>
-        </section>
-
-        <section>
-          <p> Privacy Policy </p>
-        </section>
-      </footer>
         <section>
           <p> Privacy Policy </p>
         </section>
