@@ -9,6 +9,8 @@ import Register from "./Register";
 import RecruiterLanding from "./recruiterLanding";
 import JobseekerLanding from "./jobseekerLanding";
 import ForgotPassword from "./ForgotPassword";
+import JobseekerMeetings from "./JobseekerMeetings";
+import RecruiterMeetings from "./RecruiterMeetings";
 
 function App() {
   return (
@@ -26,6 +28,9 @@ function App() {
             <li style={{ marginRight: "40px" }}>
               <Link to="/fairs">Fairs</Link>
             </li>
+            <li style={{ marginRight: "40px" }}>
+              <Link to="/meetings">My Meetings</Link>
+            </li>
             <li
               style={{ marginRight: "5px", color: "white", fontWeight: "bold" }}
             >
@@ -41,6 +46,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/meetings" element={<RecruiterMeetings />} />
         <Route path="/fairs" element={<Fairs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

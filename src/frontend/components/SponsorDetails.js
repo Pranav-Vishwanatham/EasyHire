@@ -12,7 +12,7 @@ function SponsorDetails(props) {
         setShowPopup(true);
         setTimeout(() => {
             setShowPopup(false);
-        }, 2000); // 3 seconds
+        }, 2000); // 2 seconds
     };
 
     return (
