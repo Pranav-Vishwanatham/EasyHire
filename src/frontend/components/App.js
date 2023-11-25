@@ -8,6 +8,9 @@ import Fairs from "./Fairs";
 import Register from "./Register";
 import RecruiterLanding from "./recruiterLanding";
 import JobseekerLanding from "./jobseekerLanding";
+import ForgotPassword from "./ForgotPassword";
+import JobseekerMeetings from "./JobseekerMeetings";
+import RecruiterMeetings from "./RecruiterMeetings";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -107,6 +110,11 @@ function App() {
             <li style={{ marginRight: "40px" }}>
               <Link to="/fairs">Fairs</Link>
             </li>
+            <li style={{ marginRight: "40px" }}>
+              <Link to="/meetings">My Meetings</Link>
+            </li>
+            <li
+              style={{ marginRight: "5px", color: "white", fontWeight: "bold" }}
           </ul>
           {isLoggedIn? (
             <div>
@@ -162,33 +170,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/meetings" element={<RecruiterMeetings />} />
         <Route path="/fairs" element={<Fairs />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
         <Route path="/companies" element={<JobseekerLanding />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
 
       <footer>
         <section>
           <p> &copy; 2023 EasyHire, Inc</p>
         </section>
-      <footer>
         <section>
-          <p> &copy; 2023 EasyHire, Inc</p>
+          <p> About Us | Directions | Contact Us</p>
         </section>
-
-        <section>
-          <p> About | Directions | Contact Us</p>
-        </section>
-        <section>
-          <p> About | Directions | Contact Us</p>
-        </section>
-
-        <section>
-          <p> Privacy Policy </p>
-        </section>
-      </footer>
         <section>
           <p> Privacy Policy </p>
         </section>

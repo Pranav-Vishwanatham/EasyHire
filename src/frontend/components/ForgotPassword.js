@@ -1,46 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../css/forgotPassword.css"; // Add your CSS file for styling
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
-  const handleForgotPassword = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Implement the logic to send the email to your backend
     try {
-      // Send a request to your backend to initiate the password reset
-    //   const response = await axios.post('/api/forgot-password', { email });
-
-      // Display the response message to the user
-    //   setMessage(response.data.message);
-    const response = await fetch('/forgot-password', {
-        method: 'POST',
+      const response = await fetch("/request-password-reset", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email })
-    });
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        // Handle successful response
+        alert("Please check your email for password reset instructions.");
+        navigate("/login"); // Navigate back to the login page or a confirmation page
+      } else {
+        // Handle errors
+        const error = await response.json();
+        alert(`Error: ${error.message}`);
+      }
     } catch (error) {
-      console.error('Error:', error.response.data);
-      setMessage('Something went wrong. Please try again.');
+      console.error("Error:", error);
+      alert("An error occurred while requesting a password reset.");
     }
   };
 
   return (
-    <div>
-      <h2>Forgot Password</h2>
-      <p>Enter your email to receive a password reset link.</p>
-
-      <input
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <button onClick={handleForgotPassword}>Reset Password</button>
-
-      {message && <p>{message}</p>}
+    <div className="forgot-password-container">
+      <div className="forgot-password-card">
+        <h2>Reset Your Password</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
-};
-
+}
 export default ForgotPassword;
