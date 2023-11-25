@@ -113,8 +113,6 @@ function App() {
             <li style={{ marginRight: "40px" }}>
               <Link to="/meetings">My Meetings</Link>
             </li>
-            <li
-              style={{ marginRight: "5px", color: "white", fontWeight: "bold" }}
           </ul>
           {isLoggedIn? (
             <div>
