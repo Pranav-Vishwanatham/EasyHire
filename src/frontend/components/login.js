@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// import { BrowserRouter as Link } from "react-router-dom";
 import '../css/login.css';
 
-function Login() {
+function Login({ onLogin }) {
     const navigate = useNavigate(); // Get the history object from React Router
 
     const handleSuccessfulLogin = (user) => {
         console.log(`Hello ${user.firstName}! You are successfully logged in!`);
+        onLogin(user.designation);
         if(user.designation == 'jobSeeker') {
             console.log("entered successful login");
             navigate('/companies'); 
@@ -64,7 +66,8 @@ function Login() {
                         <button type="submit">LOG IN</button>
                     </form>
                     <br/>
-                    <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
+                    {/* <Link to="/forgotPassword" className="forgot-password">FORGOT PASSWORD?</Link> */}
+                    {/* <a href="#" ></a> */}
                 </div>
             </div>
         </div>
