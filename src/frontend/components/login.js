@@ -1,20 +1,22 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "../css/login.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../css/login.css';
 
-function Login() {
-  const navigate = useNavigate(); // Get the history object from React Router
+function Login({ onLogin }) {
+    const navigate = useNavigate(); // Get the history object from React Router
 
-  const handleSuccessfulLogin = (user) => {
-    console.log(`Hello ${user.firstName}! You are successfully logged in!`);
-    if (user.designation === "jobSeeker") {
-      console.log("entered successful login");
-      navigate("/companies");
-    } else if (user.designation === "recruiter") {
-      navigate("/jobSeekers");
-    }
-    // Perform the routing to the 'jobSeekers' component after successful login
-  };
+    const handleSuccessfulLogin = (user) => {
+        console.log(`Hello ${user.firstName}! You are successfully logged in!`);
+        onLogin(user.designation);
+        if(user.designation == 'jobSeeker') {
+            console.log("entered successful login");
+            navigate('/companies'); 
+        }
+        else if(user.designation == 'recruiter') {
+            navigate('/jobSeekers'); 
+        }
+        // Perform the routing to the 'jobSeekers' component after successful login
+    };
 
   const handleSubmit = async (event) => {
     event.preventDefault();

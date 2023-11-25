@@ -51,5 +51,4 @@ function ForgotPassword() {
     </div>
   );
 }
-
 export default ForgotPassword;
