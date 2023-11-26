@@ -27,16 +27,13 @@ function App() {
   const handleClose = (option) => { 
     setAnchorEl(null);
       switch (option) {
-        case 'View Profile':
-          // <Link to='/companies'></L/ink>
-          navigate('/companies'); // Adjust the route as needed
-          break;
+        case 'My Dashboard':
+            navigate('/meetings'); // Adjust the route as needed
+            break;
         case 'View Companies':
-          // <Link to='/companies'></Link>
           navigate('/companies'); // Adjust the route as needed
           break;
         case 'View Candidates':
-          // <Link to='/companies'></Link>
           navigate('/jobSeekers'); // Adjust the route as needed
           break;
         case 'Logout':
@@ -67,9 +64,9 @@ function App() {
   useEffect(() => {
     // Update options state when designation changes
     if (designation === 'jobSeeker') {
-      setOptions(['View Profile', 'View Companies', 'Logout']);
+      setOptions(['My Dashboard', 'View Companies', 'Logout']);
     } else if (designation === 'recruiter') {
-      setOptions(['View Profile', 'View Candidates', 'Logout']);
+      setOptions(['My Dashboard', 'View Candidates', 'Logout']);
     } else {
       setOptions(['None', 'View Profile', 'Logout']);
     }
@@ -131,9 +128,6 @@ function App() {
             <li style={{ marginRight: "40px" }}>
               <Link to="/fairs">Fairs</Link>
             </li>
-            <li style={{ marginRight: "40px" }}>
-              <Link to="/meetings">My Meetings</Link>
-            </li>
           </ul>
           {isLoggedIn? (
             <div>
@@ -144,9 +138,9 @@ function App() {
               aria-expanded={open ? 'true' : undefined}
               aria-haspopup="true"
               onClick={handleClick}
-              width="5px"
+              style={{ boxShadow: 'none' }}
             >
-              <MoreVertIcon style={{ color: "white"}}/>
+              <MoreVertIcon style={{ color: "white", marginTop: "6px"}}/>
             </IconButton>
             <Menu
               id="long-menu"
