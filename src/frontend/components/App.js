@@ -107,7 +107,7 @@ function App() {
         <div style={{ color: "white", fontWeight: "bold" }}>EasyHire</div>
         <nav style={{ display: "flex", justifyContent:"space-evenly"}}>
         {isLoggedIn? (
-          <div className="searchBarContainer" style={{marginRight: "300px", marginTop:"6px"}}>
+          <div className="searchBarContainer" style={{ marginRight: "200px", marginTop:"6px" }}>
             <input
               className="searchBarInput"
               type="text"
@@ -115,6 +115,7 @@ function App() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={handleSearch}
+              style={{width:"350px", textAlign:"center", color:"black", border:"2px solid black"}}
             />
           </div>
         ):<></>}
@@ -132,13 +133,13 @@ function App() {
           {isLoggedIn? (
             <div>
             <IconButton
+              class = "three_dots"
               aria-label="more"
               id="long-button"
               aria-controls={open ? 'long-menu' : undefined}
               aria-expanded={open ? 'true' : undefined}
               aria-haspopup="true"
               onClick={handleClick}
-              style={{ boxShadow: 'none' }}
             >
               <MoreVertIcon style={{ color: "white", marginTop: "6px"}}/>
             </IconButton>
