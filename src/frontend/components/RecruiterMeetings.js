@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import '../css/Meetings.css';
 
 const initialMeetings = [
-    { title: 'Meeting with Pranav Vishwanatham', time: '12/20/2023 2:00 PM EDT', email: 'pranav0909@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '487044' },
+    { title: 'Meeting with Sofia Midkiff', time: '12/20/2023 2:00 PM EDT', email: 'sofia09@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '487044' },
     { title: 'Meeting with Sushma Deegoju', time: '12/22/2023 12:30 PM EDT', email: 'sushmad@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '948145'},
-    { title: 'Meeting with Rishith Gandham', time: '12/10/2023 3:00 PM EDT', email: 'rishithg@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '780012' },
-    { title: 'Meeting with Gayathri Pendyala', time: '12/08/2023 10:30 AM EDT', email: 'gayathripendyala@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '672189' },
-    { title: 'Meeting with Vineela Yerrabelli', time: '12/04/2023 1:00 PM EDT', email: 'Vineela.y@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '567324' },
+    { title: 'Meeting with Ally Sassano', time: '12/10/2023 3:00 PM EDT', email: 'sassanoally@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '780012' },
+    { title: 'Meeting with Katie Brintle', time: '12/08/2023 10:30 AM EDT', email: 'brintlek@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '672189' },
+    { title: 'Meeting with An le', time: '12/04/2023 1:00 PM EDT', email: 'anle96@vt.edu', link: 'https://zoom.us/j/98776825185', passcode: '567324' },
   ];
 
 const Meeting = ({ title, time, email, link, passcode, onCancel }) => (
