@@ -3,7 +3,7 @@ import SponsorsList from './SponsorsList';
 import SponsorDetails from './SponsorDetails';
 import '../css/jobseekerLanding.css';
 
-function JobseekerLanding() {
+function JobseekerLanding({searchTerm}) {
     const [selectedSponsor, setSelectedSponsor] = useState(null);
 
     const [sponsors, setSponsers] = useState([]);
@@ -11,11 +11,18 @@ function JobseekerLanding() {
     useEffect(() => {
         // Fetch data when the component mounts
         fetchData();
-    }, []);
+    }, [searchTerm]);
 
     const fetchData = async () => {
         try {
-            const response = await fetch('/sponsors', {
+            let url = '/sponsors';
+            console.log("Search term: "+searchTerm);
+
+            if (searchTerm) {
+                url += `/${encodeURIComponent(searchTerm)}`;
+            }
+
+            const response = await fetch(url, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
