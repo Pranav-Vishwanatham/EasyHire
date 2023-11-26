@@ -9,7 +9,6 @@ import Register from "./Register";
 import RecruiterLanding from "./recruiterLanding";
 import JobseekerLanding from "./jobseekerLanding";
 import ForgotPassword from "./ForgotPassword";
-import JobseekerMeetings from "./JobseekerMeetings";
 import RecruiterMeetings from "./RecruiterMeetings";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -95,11 +94,33 @@ function App() {
     localStorage.setItem('isLoggedIn', 'false');
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    // You can perform any additional search-related logic here
+    if (e.key === 'Enter') {
+      // Perform any additional search-related logic here
+      navigate(`/companies?search=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
   return (
     <div>
-      <header>
+      <header >
         <div style={{ color: "white", fontWeight: "bold" }}>EasyHire</div>
-        <nav style={{ display: "flex"}}>
+        <nav style={{ display: "flex", justifyContent:"space-evenly"}}>
+        {isLoggedIn? (
+          <div className="searchBarContainer" style={{marginRight: "300px", marginTop:"6px"}}>
+            <input
+              className="searchBarInput"
+              type="text"
+              placeholder="Search jobs..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleSearch}
+            />
+          </div>
+        ):<></>}
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -173,7 +194,7 @@ function App() {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
-        <Route path="/companies" element={<JobseekerLanding />} />
+        <Route path="/companies" element={<JobseekerLanding searchTerm={searchTerm} />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
 
