@@ -13,10 +13,6 @@ const DisplayJobSeekers = () => {
     fetchData();
   }, []);
 
-  const handleLogout = () => {
-    navigate("/login");
-  };
-
   const handleNext = () => {
     if (currentIndex < users.length - 1) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -53,9 +49,6 @@ const DisplayJobSeekers = () => {
 
   return (
     <div class="recruiter-landing">
-      <div class="lgot-btn">
-        <button onClick={handleLogout}>Logout</button>
-      </div>
       <div className="recruiter-container">
         <h1>Candidate Details</h1>
         {users.length > 0 && (
