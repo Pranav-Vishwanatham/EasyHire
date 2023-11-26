@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../css/SponsorDetails.css';
+import axios from 'axios';
+
 
 function SponsorDetails(props) {
     const { name, role, jobId, description, requirements, prefered, timeslot1, recruiter1, timeslot2, recruiter2 } = props.sponsor;
@@ -8,12 +10,37 @@ function SponsorDetails(props) {
     const [showMeetingInfo, setShowMeetingInfo] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
 
+    // const handleAppointmentClick = () => {
+    //     setShowPopup(true);
+    //     setTimeout(() => {
+    //         setShowPopup(false);
+    //     }, 2000); // 2 seconds
+    // };
     const handleAppointmentClick = () => {
         setShowPopup(true);
+        
+        // Define emailData with the necessary information
+        const emailData = {
+            userEmail: "pranav0909@vt.edu", // Replace with the actual user's email
+            meetingDetails: "Tue, Nov 24th, 2023 | 9:00 AM - 10:00 AM EDT" // Replace with actual meeting details
+        };
+    
+        // Axios POST request to send the email
+        axios.post('http://localhost:4000/send-email', emailData)
+            .then(response => {
+                console.log('Email sent successfully:', response.data);
+                // Handle success - maybe update the state to show a success message
+            })
+            .catch(error => {
+                console.error('Error in sending email:', error);
+                // Handle error - maybe update the state to show an error message
+            });
+    
         setTimeout(() => {
             setShowPopup(false);
-        }, 2000); // 2 seconds
+        }, 2000); // Hide popup after 2 seconds
     };
+    
 
     return (
         <div className="sponsorDetails">
@@ -71,7 +98,6 @@ function SponsorDetails(props) {
                         </div>
                     </div>
                 </div>
-                
             )}
             {showMeetingInfo && (
                 <div className="meetingInfo">
@@ -90,17 +116,17 @@ function SponsorDetails(props) {
                             <h3>Assigned Recruiter</h3>
                             <h4>{recruiter2}</h4>
                         </div>
-                       {/* <div className="availableSlots"> 
+                       <div className="availableSlots"> 
                             <h3>Available Timeslots</h3>
                            <h4>2</h4><button>Appointment</button>
-                        {/* </div>  */}
+                        </div>  
                         <div className="availableSlots"> 
-                        <button onClick={handleAppointmentClick}>Make an Appointment</button>
+                         <button onClick={handleAppointmentClick}>Make an Appointment</button>
                         {showPopup && (
                 <span className="popup">
                      ✔ Your meeting is scheduled.
                 </span>
-            )}
+          )}
                         </div>
                     </div>
                 </div>
