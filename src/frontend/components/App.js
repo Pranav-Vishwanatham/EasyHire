@@ -8,6 +8,7 @@ import Fairs from "./Fairs";
 import Register from "./Register";
 import RecruiterLanding from "./recruiterLanding";
 import JobseekerLanding from "./jobseekerLanding";
+import EventHostDashboard from './EventHostDashboard';
 import ForgotPassword from "./ForgotPassword";
 import RecruiterMeetings from "./RecruiterMeetings";
 import IconButton from '@mui/material/IconButton';
@@ -191,6 +192,7 @@ function App() {
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
         <Route path="/companies" element={<JobseekerLanding searchTerm={searchTerm} />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/EventHostDashboard" element={<EventHostDashboard />} />
       </Routes>
 
       <footer>
