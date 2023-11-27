@@ -25,7 +25,8 @@ function ForgotPassword() {
       } else {
         // Handle errors
         const error = await response.json();
-        alert(`Error: ${error.message}`);
+        console.log("email not found! " + error);
+        alert(`Email not found!!!`);
       }
     } catch (error) {
       console.error("Error:", error);

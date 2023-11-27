@@ -3,8 +3,8 @@ import '../css/SponsorDetails.css';
 import axios from 'axios';
 
 
-function SponsorDetails(props) {
-    const { name, role, jobId, description, requirements, prefered } = props.sponsor;
+function SponsorDetails({sponsor, userEmail, userName}) {
+    const { name, role, jobId, description, requirements, prefered, boothNum } = sponsor;
     const requirementItems = requirements.split('.').filter(item => item.trim() !== '');
     const preferedItems = prefered.split('.').filter(item => item.trim() !== '');
     const [showMeetingInfo, setShowMeetingInfo] = useState(false);
@@ -56,8 +56,12 @@ function SponsorDetails(props) {
         
         // Define emailData with the necessary information
         const emailData = {
-            userEmail: "pranav0909@vt.edu", // Replace with the actual user's email
-            meetingDetails: timeSlot + recruiterData1.firstName + recruiterData1.lastName// Replace with actual meeting details
+            userEmail: userEmail, 
+            meetingDetails: timeSlot,
+            recruiterName: recruiterData1.firstName + " " + recruiterData1.lastName,
+            companyName: name,
+            boothNumber: boothNum,
+            userName: userName
         };
     
         // Axios POST request to send the email

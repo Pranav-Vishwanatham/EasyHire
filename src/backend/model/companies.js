@@ -27,6 +27,9 @@ const companySchema = mongoose.Schema({
     jobId: {
         type: String,
         required: true
+    }, 
+    boothNum: {
+        type: String,
     }
 })
 

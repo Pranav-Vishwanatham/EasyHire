@@ -7,7 +7,7 @@ function Login({ onLogin }) {
 
     const handleSuccessfulLogin = (user) => {
         console.log(`Hello ${user.firstName}! You are successfully logged in!`);
-        onLogin(user.designation);
+        onLogin(user);
         if(user.designation == 'jobSeeker') {
             console.log("entered successful login");
             navigate('/companies'); 
