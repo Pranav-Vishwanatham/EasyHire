@@ -39,7 +39,6 @@ function Login({ onLogin }) {
       if (response.ok) {
         const userData = await response.json();
         console.log(userData);
-        alert(`Hello ${userData.firstName}`);
         handleSuccessfulLogin(userData);
       } else {
         const errorMessage = await response.json();

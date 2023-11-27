@@ -22,4 +22,22 @@ const postRecruiter = async (req, res) => {
     }
 }
 
-module.exports = { getAllRecruiters, postRecruiter };
+const getRecruiter = async (req, res) => {
+    const search_str = req.params.companyName;
+    console.log("search_str: " + req.params.companyName);
+    try {
+        const recruiter = await recruiterModel.findOne({ companyName : { $regex: new RegExp(search_str, 'i') } });
+        if(recruiter) {
+            console.log("recruiter: " + recruiter);
+            res.status(200).send(recruiter);
+        } else {
+            console.log("No recruiter found!!!");
+            alert("No recruiter Found!!!");
+        }
+    } catch(error) {
+        console.log("Something went wrong!" + error);
+        res.status(500).json({ error: "Something went wrong!" });
+    }
+}
+
+module.exports = { getAllRecruiters, postRecruiter, getRecruiter };

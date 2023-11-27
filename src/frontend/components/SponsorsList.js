@@ -14,7 +14,6 @@ function SponsorsList(props) {
     <div className="sponsorsList">
       {props.sponsors.map((sponsor) => {
         const imageName = `${sponsor.name.replace(/\s+/g, '').replace(/\./g, '')}.jpeg`;
-        console.log(imageName);
         const jpegImagePath = `./images/companies/${imageName}`;
 
         return (
