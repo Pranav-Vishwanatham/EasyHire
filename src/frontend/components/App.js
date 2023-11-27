@@ -46,15 +46,22 @@ function App() {
           break;
       }
   };
+  const storedUserEmail = localStorage.getItem('userEmail');
+  const [userEmail, setUserEmail] = useState(storedUserEmail || '');
+  const storedUserName = localStorage.getItem('userName');
+  const [userName, setUserName] = useState(storedUserName || '');
+  const storedUserPassword = localStorage.getItem('userPassword');
+  const [userPassword, setUserPassword] = useState(storedUserPassword || '');
+
   const storedLoggedInState = localStorage.getItem('isLoggedIn');
   const [isLoggedIn, setIsLoggedIn] = useState(storedLoggedInState === 'true');
   const storedDesignationState = localStorage.getItem('designation');
   const [designation, setDesignation] = useState(storedDesignationState || '');
   const [options, setOptions] = useState(() => {
     if (designation === 'jobSeeker') {
-      return ['View Profile', 'View Companies', 'Logout'];
+      return ['My Dashboard', 'View Companies', 'Logout'];
     } else if (designation === 'recruiter') {
-      return ['View Profile', 'View Candidates', 'Logout'];
+      return ['My Dashboard', 'View Candidates', 'Logout'];
     } else {
       return ['None', 'View Profile', 'Logout'];
     }
@@ -63,27 +70,41 @@ function App() {
   
 
   useEffect(() => {
+    if (window.location.pathname === '/') {
+      // If it is, set isLoggedIn to false
+      setIsLoggedIn(false);
+      localStorage.setItem('isLoggedIn', 'false');
+    }
     // Update options state when designation changes
     if (designation === 'jobSeeker') {
       setOptions(['My Dashboard', 'View Companies', 'Logout']);
     } else if (designation === 'recruiter') {
       setOptions(['My Dashboard', 'View Candidates', 'Logout']);
     } else {
-      setOptions(['None', 'View Profile', 'Logout']);
+      setOptions(['Logout']);
     }
   }, [designation]);
 
   
-  const handleLogin = (userDesignation) => {
+  const handleLogin = (user) => {
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
-    setDesignation(userDesignation);
-    localStorage.setItem('designation', userDesignation); // Corrected this line
-    console.log("logged in: " + userDesignation); // Corrected this line
-    if (userDesignation === 'jobSeeker') {
-      setOptions(['View Profile', 'View Companies', 'Logout']);
-    } else if (userDesignation === 'recruiter') {
-      setOptions(['View Profile', 'View Candidates', 'Logout']);
+    setDesignation(user.designation);
+    localStorage.setItem('designation', user.designation); // Corrected this line
+    setUserEmail(user.email);
+    localStorage.setItem('userEmail', user.email);
+    setUserName(user.firstName);
+    localStorage.setItem('userName', user.firstName);
+    setUserPassword(user.password);
+    localStorage.setItem('userPassword', user.password); 
+    console.log(userName + " " + userEmail);
+    console.log("logged in: " + user.designation); // Corrected this line
+    if (user.designation === 'jobSeeker') {
+      setOptions(['My Dashboard', 'View Companies', 'Logout']);
+    } else if (user.designation === 'recruiter') {
+      setOptions(['My Dashboard', 'View Candidates', 'Logout']);
+    } else {
+      setOptions(['Logout']);
     }
   };
 
@@ -190,7 +211,7 @@ function App() {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/jobSeekers" element={<RecruiterLanding />} />
-        <Route path="/companies" element={<JobseekerLanding searchTerm={searchTerm} />} />
+        <Route path="/companies" element={<JobseekerLanding searchTerm={searchTerm} email={userEmail} name={userName} />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/EventHostDashboard" element={<EventHostDashboard />} />
       </Routes>
