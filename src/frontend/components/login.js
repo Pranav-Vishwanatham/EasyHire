@@ -15,6 +15,9 @@ function Login({ onLogin }) {
         else if(user.designation == 'recruiter') {
             navigate('/jobSeekers'); 
         }
+        else if(user.designation == 'eventHost') {
+          navigate('/eventHostDashboard');
+        }
         // Perform the routing to the 'jobSeekers' component after successful login
     };
 
@@ -28,7 +31,7 @@ function Login({ onLogin }) {
     console.log("Password:", loginPassword);
 
     try {
-      const response = await fetch("/validate", {
+      const response = await fetch("http://localhost:4000/validate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import '../css/SponsorDetails.css';
 import axios from 'axios';
 
 
-function SponsorDetails({sponsor, userEmail, userName}) {
+function SponsorDetails({sponsor, userEmail, userName, userId}) {
     const { name, role, jobId, description, requirements, prefered, boothNum } = sponsor;
     const requirementItems = requirements.split('.').filter(item => item.trim() !== '');
     const preferedItems = prefered.split('.').filter(item => item.trim() !== '');
@@ -61,7 +61,8 @@ function SponsorDetails({sponsor, userEmail, userName}) {
             recruiterName: recruiterData1.firstName + " " + recruiterData1.lastName,
             companyName: name,
             boothNumber: boothNum,
-            userName: userName
+            userName: userName,
+            recruiterEmail: recruiterData1.email
         };
     
         // Axios POST request to send the email
@@ -74,7 +75,44 @@ function SponsorDetails({sponsor, userEmail, userName}) {
                 console.error('Error in sending email:', error);
                 // Handle error - maybe update the state to show an error message
             });
-    
+
+        const meetingData = {
+          timeSlot: timeSlot,
+          firstName: recruiterData1.firstName,
+          lastName: recruiterData1.lastName,
+          venue: 'Squires CommonWealth Ballroom',
+          email: recruiterData1.email,
+          jobSeeker: userId,
+          boothNumber: boothNum,
+          company: name
+        }
+        
+        axios.post('http://localhost:4000/addJobSeekerMeeting',meetingData)
+          .then(response => {
+            console.log('Added Data successfully!', response.data);
+          })
+          .catch(error => {
+            console.log('Error Adding data: ', error);
+          });
+
+          const recruiterMeetingData = {
+            timeSlot: timeSlot,
+            userName: userName,
+            venue: 'Squires CommonWealth Ballroom',
+            email: userEmail,
+            recruiter: recruiterData1._id,
+            boothNumber: boothNum,
+            school: 'Virginia Tech'
+          }
+
+        axios.post('http://localhost:4000/addRecruiterMeeting',recruiterMeetingData)
+          .then(response => {
+            console.log('Added Data successfully!', response.data);
+          })
+          .catch(error => {
+            console.log('Error Adding data: ', error);
+          });
+
         setTimeout(() => {
             setShowPopup(false);
         }, 2000); // Hide popup after 2 seconds
@@ -135,39 +173,6 @@ function SponsorDetails({sponsor, userEmail, userName}) {
                 ))}
               </div>
             )}
-            {/* {showMeetingInfo && (
-                <div className="meetingInfo">
-                    <div className="leftInfo">
-                        <div className="dateInfo">
-                            <h3>Schedule Time</h3>
-                            <h4>{timeslot2}</h4>
-                        </div>
-                        <div className="interactionType">
-                            <h3>Interaction Type</h3>
-                            <h4>Zoom Meeting</h4>
-                        </div>
-                    </div>
-                    <div className="rightInfo">
-                        <div className="recruiterInfo">
-                            <h3>Assigned Recruiter</h3>
-                            <h4>{recruiter2}</h4>
-                        </div>
-                       <div className="availableSlots"> 
-                            <h3>Available Timeslots</h3>
-                           <h4>2</h4><button>Appointment</button>
-                        </div>  
-                        <div className="availableSlots"> 
-                         <button onClick={handleAppointmentClick}>Make an Appointment</button>
-                        {showPopup && (
-                <span className="popup">
-                     ✔ Your meeting is scheduled.
-                </span>
-          )}
-                        </div>
-                    </div>
-                </div>
-                
-            )} */}
         </div>
         
     );
