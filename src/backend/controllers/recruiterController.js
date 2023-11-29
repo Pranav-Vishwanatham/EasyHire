@@ -40,4 +40,16 @@ const getRecruiter = async (req, res) => {
     }
 }
 
-module.exports = { getAllRecruiters, postRecruiter, getRecruiter };
+const getRecruiterByEmail = async (req,res) => {
+    const emailId = req.params.emailId;
+    try {
+        const user = await recruiterModel.findOne({email : emailId});
+        // console.log(user.json());
+        res.status(200).json(user);
+    } catch(error) {
+        console.log("Recruiter Not found!" + error);
+        res.status(500).json({ error: "Recruiter not found!" });
+    }
+}
+
+module.exports = { getAllRecruiters, postRecruiter, getRecruiter, getRecruiterByEmail };

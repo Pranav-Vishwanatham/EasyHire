@@ -53,7 +53,7 @@
   
 
 .cancel-button {
-    background-color: #016b63;
+    background-color: rgb(184, 14, 14);
     color: white;
     border: none;
     padding: 6px 12px;
@@ -70,7 +70,7 @@
   }
   
   .cancel-button:hover {
-    background-color: #04544e;
+    background-color: rgb(224, 31, 31);
     
   }
   

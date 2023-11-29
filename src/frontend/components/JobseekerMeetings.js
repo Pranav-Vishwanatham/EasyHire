@@ -1,29 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/Meetings.css';
 
-const initialMeetings = [
-    { title: 'Meeting with Chandralekha Kommana', company:'Amazon', time: '12/20/2023 2:00 PM EDT', email: 'chandralekha@amazon.com', link: 'https://zoom.us/j/98776825185', passcode: '487044' },
-    { title: 'Meeting with John Sable', company:'Dice', time: '18/20/2023 12:00 PM EDT', email: 'sablejohn@dice.com', link: 'https://zoom.us/j/98776825185', passcode: '803421' },
-    { title: 'Meeting with Sai Kiran Reddy Ramacharla', company:'American Express', time: '12/22/2023 12:30 PM EDT', email: 'saikiran@amex.com', link: 'https://zoom.us/j/98776825185', passcode: '948145'},
-    { title: 'Meeting with Karen', company:'Adobe', time: '19/01/2024 1:30 PM EDT', email: 'karen@adobe.com', link: 'https://zoom.us/j/98776825185', passcode: '678120'},
-  ];
 
-const Meeting = ({ title, company, time, email, link, passcode, onCancel }) => (
+const Meeting = ({ firstName, lastName, company, timeSlot, venue, email, boothNumber, onCancel }) => (
   <div className="meeting">
     <div className="meeting-info">
-      <div className="meeting-title">{title} / <a href="#">{company} </a></div>
+      <div className="meeting-title">{`Meeting with ${firstName} ${lastName}`} / <a href="#">{company} </a></div>
       <div className="meeting-details">
-        {time} / <a href={`mailto:${email}`}>{email}</a> <br></br><br></br>
-        Join <a href={link} className="meeting-link" target="_blank" rel="noopener noreferrer">Zoom Meeting</a> &nbsp;&nbsp;
-        Passcode: {passcode}
+        {timeSlot} / <a href={`mailto:${email}`}>{email}</a> <br></br><br></br>
+        {/* Join <a href={link} className="meeting-link" target="_blank" rel="noopener noreferrer">Zoom Meeting</a> &nbsp;&nbsp;
+        Passcode: {passcode} */}
+        {`Location: ${venue}`}<br /><br/>
+        {`Booth No.: ${boothNumber}`}
         <button className="cancel-button" onClick={onCancel}>Cancel Meeting</button>
       </div>
     </div>
   </div>
 );
 
-const MeetingsList = () => {
-  const [meetings, setMeetings] = useState(initialMeetings);
+const MeetingsList = ({id}) => {
+  const [meetings, setMeetings] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/jobSeekerMeetings/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json"
+        }
+      });
+
+      if(response.ok) {
+        setMeetings(await response.json());
+      } else {
+        console.log("Meetings not found!!");
+      }
+   } catch(e) {
+      console.log("Error: " + e);
+   }
+  }
+
+  useEffect(() => {
+    fetchData();
+  },[]);
+  
 
   const cancelMeeting = index => {
     const newMeetings = meetings.filter((_, i) => i !== index);

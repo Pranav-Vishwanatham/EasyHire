@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
 import Home from "./Home";
 import Login from "./login";
 import "../css/App.css";
@@ -11,6 +11,7 @@ import JobseekerLanding from "./jobseekerLanding";
 import EventHostDashboard from './EventHostDashboard';
 import ForgotPassword from "./ForgotPassword";
 import RecruiterMeetings from "./RecruiterMeetings";
+import JobSeekerMeetings from "./JobseekerMeetings";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -20,6 +21,8 @@ const ITEM_HEIGHT = 48;
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -29,7 +32,10 @@ function App() {
     setAnchorEl(null);
       switch (option) {
         case 'My Dashboard':
-            navigate('/meetings'); // Adjust the route as needed
+            if(designation == 'jobSeeker')
+              navigate('/jobSeekerMeetings'); 
+            else if(designation == 'recruiter') 
+              navigate('/recruiterMeetings');// Adjust the route as needed
             break;
         case 'View Companies':
           navigate('/companies'); // Adjust the route as needed
@@ -52,33 +58,42 @@ function App() {
   const [userName, setUserName] = useState(storedUserName || '');
   const storedUserPassword = localStorage.getItem('userPassword');
   const [userPassword, setUserPassword] = useState(storedUserPassword || '');
+  const storedUserId= localStorage.getItem('userId');
+  const [userId, setUserId] = useState(storedUserId || '');
 
   const storedLoggedInState = localStorage.getItem('isLoggedIn');
   const [isLoggedIn, setIsLoggedIn] = useState(storedLoggedInState === 'true');
   const storedDesignationState = localStorage.getItem('designation');
   const [designation, setDesignation] = useState(storedDesignationState || '');
+
   const [options, setOptions] = useState(() => {
-    if (designation === 'jobSeeker') {
+    if (designation == 'jobSeeker') {
       return ['My Dashboard', 'View Companies', 'Logout'];
-    } else if (designation === 'recruiter') {
+    } else if (designation == 'recruiter') {
       return ['My Dashboard', 'View Candidates', 'Logout'];
     } else {
-      return ['None', 'View Profile', 'Logout'];
+      return ['Logout'];
     }
   });
 
-  
+  // ... (other state variables)
 
   useEffect(() => {
+    // Fetch the designation and other user details
     if (window.location.pathname === '/') {
       // If it is, set isLoggedIn to false
       setIsLoggedIn(false);
       localStorage.setItem('isLoggedIn', 'false');
     }
+  },[]);
+
+  
+
+  useEffect(() => {
     // Update options state when designation changes
-    if (designation === 'jobSeeker') {
+    if (designation == 'jobSeeker') {
       setOptions(['My Dashboard', 'View Companies', 'Logout']);
-    } else if (designation === 'recruiter') {
+    } else if (designation == 'recruiter') {
       setOptions(['My Dashboard', 'View Candidates', 'Logout']);
     } else {
       setOptions(['Logout']);
@@ -97,8 +112,9 @@ function App() {
     localStorage.setItem('userName', user.firstName);
     setUserPassword(user.password);
     localStorage.setItem('userPassword', user.password); 
-    console.log(userName + " " + userEmail);
-    console.log("logged in: " + user.designation); // Corrected this line
+    setUserId(user._id);
+    localStorage.setItem('userId', user._id);
+    // Corrected this line
     if (user.designation === 'jobSeeker') {
       setOptions(['My Dashboard', 'View Companies', 'Logout']);
     } else if (user.designation === 'recruiter') {
@@ -128,7 +144,7 @@ function App() {
       <header >
         <div style={{ color: "white", fontWeight: "bold" }}>EasyHire</div>
         <nav style={{ display: "flex", justifyContent:"space-evenly"}}>
-        {isLoggedIn? (
+        {isLoggedIn && location.pathname.includes('/companies')? (
           <div className="searchBarContainer" style={{ marginRight: "200px", marginTop:"6px" }}>
             <input
               className="searchBarInput"
@@ -206,12 +222,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/meetings" element={<RecruiterMeetings />} />
+        <Route path="/jobSeekerMeetings" element={<JobSeekerMeetings id={userId} name={userName} />} />
+        <Route path='/recruiterMeetings' element={<RecruiterMeetings id={userId} name={userName} />} />
         <Route path="/fairs" element={<Fairs />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/jobSeekers" element={<RecruiterLanding />} />
-        <Route path="/companies" element={<JobseekerLanding searchTerm={searchTerm} email={userEmail} name={userName} />} />
+        <Route path="/jobSeekers" element={<RecruiterLanding email={userEmail} name={userName}/>} />
+        <Route path="/companies" element={<JobseekerLanding searchTerm={searchTerm} email={userEmail} name={userName} id={userId} />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/EventHostDashboard" element={<EventHostDashboard />} />
       </Routes>

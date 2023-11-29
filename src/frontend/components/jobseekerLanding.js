@@ -3,7 +3,7 @@ import SponsorsList from './SponsorsList';
 import SponsorDetails from './SponsorDetails';
 import '../css/jobseekerLanding.css';
 
-function JobseekerLanding({searchTerm, email, name}) {
+function JobseekerLanding({searchTerm, email, name, id}) {
     const [selectedSponsor, setSelectedSponsor] = useState(null);
 
     const [sponsors, setSponsers] = useState([]);
@@ -44,7 +44,7 @@ function JobseekerLanding({searchTerm, email, name}) {
     return (
         <div className="app">
             <SponsorsList sponsors={sponsors} onSelect={setSelectedSponsor} />
-            {selectedSponsor && <SponsorDetails sponsor={selectedSponsor} userEmail={email} userName={name} />}
+            {selectedSponsor && <SponsorDetails sponsor={selectedSponsor} userEmail={email} userName={name} userId={id}/>}
         </div>
     );
 }
