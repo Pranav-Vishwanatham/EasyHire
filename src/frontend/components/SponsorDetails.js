@@ -11,12 +11,7 @@ function SponsorDetails({sponsor, userEmail, userName, userId}) {
     const [showPopup, setShowPopup] = useState(false);
     const [recruiterData1, setRecruiterData1] = useState(null);
 
-    // const handleAppointmentClick = () => {
-    //     setShowPopup(true);
-    //     setTimeout(() => {
-    //         setShowPopup(false);
-    //     }, 2000); // 2 seconds
-    // };
+    
     // Function to reset the showTimeslot state
   const resetShowTimeslot = () => {
     setShowMeetingInfo(false);
