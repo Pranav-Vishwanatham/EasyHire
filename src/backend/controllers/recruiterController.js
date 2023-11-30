@@ -44,7 +44,7 @@ const getRecruiterByEmail = async (req,res) => {
     const emailId = req.params.emailId;
     try {
         const user = await recruiterModel.findOne({email : emailId});
-        // console.log(user.json());
+        console.log(user);
         res.status(200).json(user);
     } catch(error) {
         console.log("Recruiter Not found!" + error);

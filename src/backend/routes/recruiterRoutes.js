@@ -10,5 +10,6 @@ router.get('/recruiters/:companyName', recruiterController.getRecruiter);
 router.post('/addRecruiterMeeting', recruiterMeetingController.postRecruiterMeeting);
 router.get('/recruiterMeetings/:id', recruiterMeetingController.getRecruiterMeetings);
 router.get('/recruiter/:emailId', recruiterController.getRecruiterByEmail);
+router.get('/deleteRecruiterMeeting/:meetingId', recruiterMeetingController.deleteRecruiterMeeting);
 
 module.exports = router;

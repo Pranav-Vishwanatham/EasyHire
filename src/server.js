@@ -83,7 +83,7 @@ app.post('/send-invite', (req, res) => {
     const mailJobSeeker = {
         from: 'kirandot1976@gmail.com',
         to: jobSeekerEmail,
-        subject: 'EasyHire Meeting Confirmation',
+        subject: 'EasyHire Meeting Invite',
         text: `Dear ${jobSeekerName},\n\nCongratulations on clearing the resume screening round with ${companyName}! We would like to proceed with the technical interview. \n\nPlease select one slot from the below timeslots: \n\n${timeSlots}.\nVenue: Squires CommonWealth Ballroom\n\nLooking forward to meet you!\n\nRegards,\n${recruiterName}`
     };
 

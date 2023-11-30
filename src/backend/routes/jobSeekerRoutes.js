@@ -9,5 +9,6 @@ router.post('/addJobSeeker', jobSeekerController.postjobSeeker);
 router.get('/jobSeeker/:emailId', jobSeekerController.getJobSeeker);
 router.post('/addJobSeekerMeeting', jobSeekerMeetingController.postJobSeekerMeeting);
 router.get('/jobSeekerMeetings/:id', jobSeekerMeetingController.getJobSeekerMeetings);
+router.get('/deleteJobSeekerMeeting/:meetingId', jobSeekerMeetingController.deleteJobSeekerMeeting);
 
 module.exports = router;

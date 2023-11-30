@@ -44,9 +44,24 @@ const MeetingsList = ({id}) => {
     fetchData();
   },[]);
 
-  const cancelMeeting = index => {
-    const newMeetings = meetings.filter((_, i) => i !== index);
-    setMeetings(newMeetings);
+  const cancelMeeting = async(meetingId) => {
+    try {
+      const response = await fetch(`http://localhost:4000/deleteRecruiterMeeting/${meetingId}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json"
+        }
+      });
+
+      if(response.ok) {
+        console.log("Deleted meeting: ", response.json());
+        fetchData();
+      } else {
+        console.log("Meetings not found!!");
+      }
+   } catch(e) {
+      console.log("Error: " + e);
+   }
   };
 
   return (
@@ -55,7 +70,7 @@ const MeetingsList = ({id}) => {
       <p>View and Edit your personal meetings. <a href="#">Learn More</a></p>
       <div className="meetings-list">
         {meetings.map((meeting, index) => (
-          <Meeting key={index} {...meeting} onCancel={() => cancelMeeting(index)} />
+          <Meeting key={index} {...meeting} onCancel={() => cancelMeeting(meeting._id)} />
         ))}
       </div>
     </div>

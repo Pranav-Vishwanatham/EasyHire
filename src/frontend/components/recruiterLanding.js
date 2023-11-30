@@ -57,7 +57,7 @@ const DisplayJobSeekers = ({name, email}) => {
     try {
       const response = await axios.get(`http://localhost:4000/recruiter/${email}`);
       // const recruiterData = await response.json();
-      setRecruiter(response.data);
+      await setRecruiter(await response);
       console.log("Recruiter: ", recruiter);
     } catch (error) {
       console.log("Error fetching Recruiter Data: ", error);
